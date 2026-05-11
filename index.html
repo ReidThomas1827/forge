@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Forge"/>
+<title>Forge</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F0F0;display:flex;justify-content:center;}
+#app{width:100%;max-width:430px;min-height:100vh;background:#0E0E10;display:flex;flex-direction:column;position:relative;}
+.screen{flex:1;overflow-y:auto;padding:0 16px 100px;}
+.hidden{display:none!important;}
+/* Typography */
+.logo{font-size:48px;font-weight:900;letter-spacing:6px;color:#FF6B2C;line-height:1;}
+.logo-sub{font-size:14px;color:#888;letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.home-header{padding-top:60px;padding-bottom:32px;}
+.section-label{font-size:13px;font-weight:700;color:#888;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.empty-msg{color:#888;font-size:15px;text-align:center;margin-top:40px;line-height:2;}
+/* Buttons */
+.big-btn{width:100%;background:#FF6B2C;color:#fff;border:none;border-radius:16px;padding:20px 24px;font-size:22px;font-weight:800;font-family:inherit;letter-spacing:1px;display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:32px;}
+.big-btn-plus{font-size:32px;line-height:1;}
+.ghost-btn{background:transparent;border:1px solid #222228;color:#888;border-radius:10px;padding:12px 20px;font-family:inherit;font-size:14px;cursor:pointer;width:100%;margin-top:4px;}
+.back-btn{background:#222228;border:none;color:#F0F0F0;border-radius:10px;padding:8px 14px;font-size:18px;cursor:pointer;font-family:inherit;flex-shrink:0;}
+.done-btn{background:#FF6B2C;border:none;color:#fff;border-radius:10px;padding:8px 18px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;flex-shrink:0;}
+.delete-btn{background:transparent;border:none;font-size:20px;cursor:pointer;padding:8px;flex-shrink:0;}
+.edit-btn{background:#222228;border:none;color:#F0F0F0;border-radius:10px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:1px;flex-shrink:0;}
+/* Log header */
+.log-header{display:flex;align-items:center;justify-content:space-between;padding-top:56px;padding-bottom:20px;gap:8px;}
+.log-title{font-size:17px;font-weight:800;letter-spacing:0.5px;flex:1;text-align:center;}
+.log-date{font-size:13px;color:#888;margin-bottom:20px;letter-spacing:1px;}
+/* Summary cards */
+.summary-card{background:#1A1A1E;border-radius:14px;padding:16px 18px;margin-bottom:12px;cursor:pointer;border-left:4px solid #FF6B2C;}
+.summary-date{font-size:16px;font-weight:700;margin-bottom:4px;}
+.summary-exlist{font-size:13px;color:#888;margin-bottom:6px;line-height:1.4;}
+.summary-vol{font-size:14px;color:#FF6B2C;font-weight:700;}
+/* Exercise cards */
+.ex-card{background:#1A1A1E;border-radius:14px;padding:16px 16px 12px;margin-bottom:14px;border-left:3px solid #FF6B2C;}
+.ex-card.superset{border-left:3px solid #FF6B2C44;}
+.ex-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.ex-name{font-size:17px;font-weight:800;color:#FF6B2C;letter-spacing:0.5px;flex:1;}
+.ex-note-small{font-size:11px;color:#888;margin-bottom:10px;font-style:italic;}
+.remove-ex-btn{background:transparent;border:none;color:#888;font-size:16px;cursor:pointer;padding:4px 6px;}
+.superset-tag{font-size:9px;font-weight:900;color:#FF6B2C;letter-spacing:2px;margin-bottom:6px;}
+/* Sets */
+.set-grid{display:grid;grid-template-columns:28px 1fr 1fr 32px;gap:8px;align-items:center;margin-bottom:8px;}
+.set-col-label{font-size:11px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.set-num{font-size:14px;color:#888;font-weight:700;text-align:center;}
+.set-input{background:#222228;border:none;border-radius:8px;color:#F0F0F0;font-size:16px;font-weight:700;font-family:inherit;padding:10px 8px;text-align:center;width:100%;outline:none;}
+.set-input:read-only{opacity:0.5;}
+.remove-set-btn{background:transparent;border:none;color:#888;font-size:20px;cursor:pointer;line-height:1;padding:0;}
+.add-set-btn{background:transparent;border:1px dashed #222228;color:#888;border-radius:8px;padding:8px;width:100%;font-size:13px;cursor:pointer;font-family:inherit;margin-top:4px;letter-spacing:0.5px;}
+.add-ex-btn{background:transparent;border:2px dashed #FF6B2C44;color:#FF6B2C;border-radius:14px;padding:16px;width:100%;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;margin-top:8px;}
+/* Program */
+.prog-note{font-size:13px;color:#888;margin-bottom:20px;line-height:1.6;}
+.day-card{background:#1A1A1E;border-radius:14px;padding:16px;margin-bottom:12px;cursor:pointer;}
+.day-card-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.day-pill{border-radius:8px;padding:4px 10px;font-size:13px;font-weight:900;color:#fff;letter-spacing:1px;}
+.day-name{font-size:18px;font-weight:800;flex:1;}
+.day-arrow{font-size:24px;color:#888;}
+.day-ex-preview{display:flex;flex-wrap:wrap;gap:6px;}
+.day-ex-chip{background:#222228;border-radius:6px;padding:3px 8px;font-size:11px;color:#888;}
+.day-ex-more{font-size:11px;color:#888;align-self:center;}
+.prog-ex-card{background:#1A1A1E;border-radius:12px;padding:12px 14px;margin-bottom:8px;cursor:pointer;}
+.prog-ex-row{display:flex;justify-content:space-between;align-items:flex-start;}
+.prog-ex-name{font-size:16px;font-weight:800;margin-bottom:2px;}
+.prog-ex-sets{font-size:13px;color:#888;}
+.prog-ex-note{font-size:11px;color:#888;margin-top:6px;font-style:italic;}
+.sets-badge{border-radius:8px;padding:4px 10px;font-size:12px;font-weight:800;white-space:nowrap;}
+.superset-label{font-size:10px;font-weight:900;color:#888;letter-spacing:2px;margin-bottom:4px;margin-top:8px;padding-left:16px;}
+.progression-box{background:#1A1A1E;border-radius:14px;padding:16px;margin-top:8px;}
+.progression-title{font-size:13px;font-weight:900;letter-spacing:2px;color:#888;margin-bottom:12px;}
+.progression-row{display:flex;justify-content:space-between;padding-bottom:8px;}
+.progression-label{font-size:14px;color:#888;}
+.progression-val{font-size:14px;font-weight:800;}
+.progression-divider{border-top:1px solid #222228;margin-top:8px;padding-top:10px;}
+/* Detail */
+.vol-big{font-size:52px;font-weight:900;color:#FF6B2C;line-height:1;margin-top:8px;}
+.vol-unit{font-size:22px;font-weight:400;color:#888;}
+.vol-label{font-size:13px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;margin-top:4px;}
+.detail-set-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #222228;}
+.detail-set-num{color:#888;font-size:14px;}
+.detail-set-val{font-size:15px;font-weight:700;}
+/* Nav */
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#121214;border-top:1px solid #222228;display:flex;padding-bottom:env(safe-area-inset-bottom,20px);}
+.nav-btn{flex:1;background:transparent;border:none;color:#F0F0F0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 0 4px;cursor:pointer;font-family:inherit;}
+.nav-icon{font-size:20px;}
+.nav-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#888;}
+.nav-label.active{color:#FF6B2C;}
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:flex-end;z-index:200;}
+.modal{background:#1C1C1F;border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-height:85vh;display:flex;flex-direction:column;}
+.modal-title{font-size:20px;font-weight:800;margin-bottom:16px;letter-spacing:1px;}
+.search-input{background:#222228;border:none;border-radius:10px;color:#F0F0F0;font-size:16px;font-family:inherit;padding:12px 16px;width:100%;outline:none;margin-bottom:8px;}
+/* Muscle filter */
+.muscle-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:4px;scrollbar-width:none;}
+.muscle-tabs::-webkit-scrollbar{display:none;}
+.muscle-tab{background:#222228;border:none;color:#888;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap;letter-spacing:0.5px;}
+.muscle-tab.active{background:#FF6B2C;color:#fff;}
+.ex-list{overflow-y:auto;flex:1;}
+.ex-item{display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;border-bottom:1px solid #222228;color:#F0F0F0;font-family:inherit;font-size:16px;font-weight:600;padding:12px 4px;text-align:left;cursor:pointer;}
+.ex-item-right{display:flex;align-items:center;gap:8px;}
+.ex-muscle-tag{font-size:10px;color:#888;background:#222228;border-radius:4px;padding:2px 6px;font-weight:700;}
+.ex-info-btn{background:transparent;border:none;color:#FF6B2C;font-size:18px;cursor:pointer;padding:4px 8px;line-height:1;}
+/* Exercise info modal */
+.info-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:flex-end;z-index:300;}
+.info-modal{background:#1C1C1F;border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-height:90vh;overflow-y:auto;}
+.info-modal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+.info-modal-name{font-size:26px;font-weight:900;color:#FF6B2C;letter-spacing:1px;flex:1;}
+.info-close-btn{background:#222228;border:none;color:#F0F0F0;border-radius:10px;padding:8px 12px;font-size:16px;cursor:pointer;font-family:inherit;}
+.info-muscle-badge{display:inline-block;background:#FF6B2C22;color:#FF6B2C;border-radius:8px;padding:4px 12px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:16px;}
+.info-section-title{font-size:13px;font-weight:900;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;margin-top:16px;}
+.info-tips{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.info-tips li{font-size:15px;color:#F0F0F0;padding-left:16px;position:relative;line-height:1.5;}
+.info-tips li::before{content:"→";position:absolute;left:0;color:#FF6B2C;}
+.yt-btn{display:flex;align-items:center;gap:10px;background:#FF000022;border:1px solid #FF000044;color:#ff4444;border-radius:12px;padding:14px 16px;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;width:100%;margin-top:16px;letter-spacing:0.5px;}
+.yt-icon{font-size:22px;}
+.add-from-info-btn{display:flex;align-items:center;justify-content:center;background:#FF6B2C;border:none;color:#fff;border-radius:12px;padding:14px 16px;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;width:100%;margin-top:10px;letter-spacing:1px;}
+/* Edit mode */
+.edit-set-input{background:#2a2a30;border:1px solid #FF6B2C44;border-radius:8px;color:#F0F0F0;font-size:16px;font-weight:700;font-family:inherit;padding:10px 8px;text-align:center;width:100%;outline:none;}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="screen-home" class="screen hidden"></div>
+  <div id="screen-program" class="screen hidden"></div>
+  <div id="screen-program-day" class="screen hidden"></div>
+  <div id="screen-log" class="screen hidden"></div>
+  <div id="screen-history" class="screen hidden"></div>
+  <div id="screen-detail" class="screen hidden"></div>
+
+  <!-- Exercise Picker Modal -->
+  <div id="modal-ex" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-title">Add Exercise</div>
+      <input class="search-input" id="ex-search" placeholder="Search exercises..."/>
+      <div class="muscle-tabs" id="muscle-tabs"></div>
+      <div class="ex-list" id="ex-list"></div>
+    </div>
+  </div>
+
+  <!-- Exercise Info Modal -->
+  <div id="modal-info" class="info-modal-overlay hidden">
+    <div class="info-modal" id="info-modal-content"></div>
+  </div>
+
+  <div class="nav" id="nav">
+    <button class="nav-btn" onclick="goTo('home')"><span class="nav-icon">🏠</span><span class="nav-label" id="nl-home">Home</span></button>
+    <button class="nav-btn" onclick="goTo('program')"><span class="nav-icon">📋</span><span class="nav-label" id="nl-program">Program</span></button>
+    <button class="nav-btn" onclick="goTo('history')"><span class="nav-icon">🕐</span><span class="nav-label" id="nl-history">History</span></button>
+  </div>
+</div>
+
+<script>
+// ─── EXERCISE DATABASE ───────────────────────────────────────────────────────
+const DB = [
+  // CHEST
+  {name:"Bench Press",muscle:"Chest",tips:["Keep shoulder blades pinched and retracted","Bar should touch lower chest, not neck","Drive feet into floor for full body tension","Grip slightly wider than shoulder width"],yt:"https://www.youtube.com/results?search_query=bench+press+form+tutorial"},
+  {name:"Incline Bench Press",muscle:"Chest",tips:["Set bench to 30–45 degrees","Focus on upper chest stretch at bottom","Don't let elbows flare too wide","Control the descent — 2 sec down"],yt:"https://www.youtube.com/results?search_query=incline+bench+press+form"},
+  {name:"Incline Dumbbell Press",muscle:"Chest",tips:["Squeeze chest at the top","Full range of motion — stretch at bottom","Keep wrists stacked over elbows","Neutral or pronated grip both work"],yt:"https://www.youtube.com/results?search_query=incline+dumbbell+press+tutorial"},
+  {name:"Dumbbell Fly",muscle:"Chest",tips:["Slight bend in elbows throughout","Think 'hugging a barrel'","Feel the stretch at the bottom","Don't go too heavy — feel the muscle"],yt:"https://www.youtube.com/results?search_query=dumbbell+fly+form"},
+  {name:"Cable Fly",muscle:"Chest",tips:["Keep slight elbow bend throughout","Cross hands at the top for full squeeze","Control the return — don't let cables snap back","Lean slightly forward from hips"],yt:"https://www.youtube.com/results?search_query=cable+fly+chest+tutorial"},
+  {name:"Push Up",muscle:"Chest",tips:["Body in a straight line head to heel","Hands slightly wider than shoulders","Lower chest to 1 inch from floor","Full lockout at top"],yt:"https://www.youtube.com/results?search_query=perfect+push+up+form"},
+  {name:"Dips",muscle:"Chest",tips:["Lean forward slightly to hit chest more","Go until upper arm is parallel to floor","Full lockout at top","Control the descent"],yt:"https://www.youtube.com/results?search_query=chest+dips+form+tutorial"},
+  // BACK
+  {name:"Barbell Row",muscle:"Back",tips:["Hinge at hips, back nearly parallel to floor","Pull bar to lower chest/belly button","Keep elbows close to body","Squeeze shoulder blades together at top"],yt:"https://www.youtube.com/results?search_query=barbell+row+form+tutorial"},
+  {name:"Seated Cable Row",muscle:"Back",tips:["Sit tall, don't rock back","Pull handle to lower chest","Full stretch at start — let shoulder blades protract","Squeeze hard at the end of each rep"],yt:"https://www.youtube.com/results?search_query=seated+cable+row+form"},
+  {name:"Lat Pulldown",muscle:"Back",tips:["Slight lean back, chest up","Pull bar to upper chest, not behind neck","Think 'elbows to hips'","Control the weight back up"],yt:"https://www.youtube.com/results?search_query=lat+pulldown+form+tutorial"},
+  {name:"Pull Up",muscle:"Back",tips:["Start from dead hang","Pull until chin clears bar","Initiate with shoulder blades, not arms","Control the descent fully"],yt:"https://www.youtube.com/results?search_query=pull+up+form+tutorial"},
+  {name:"Chin Up",muscle:"Back",tips:["Supinated (palms facing you) grip","Elbows close to body","Full dead hang at bottom","Squeeze biceps and lats at top"],yt:"https://www.youtube.com/results?search_query=chin+up+form+tutorial"},
+  {name:"Single Arm Dumbbell Row",muscle:"Back",tips:["Brace on bench with same side hand and knee","Pull elbow straight back — not out","Full stretch at bottom","Drive elbow to ceiling"],yt:"https://www.youtube.com/results?search_query=single+arm+dumbbell+row+form"},
+  {name:"Face Pull",muscle:"Back",tips:["Pull to face level, elbows high","External rotate at the end","Use light weight, focus on feel","Great for shoulder health"],yt:"https://www.youtube.com/results?search_query=face+pull+form+tutorial"},
+  // SHOULDERS
+  {name:"Overhead Press",muscle:"Shoulders",tips:["Bar starts at upper chest","Press in a slight arc — bar finishes over ears","Lock out fully at top","Brace core hard throughout"],yt:"https://www.youtube.com/results?search_query=overhead+press+form+tutorial"},
+  {name:"Dumbbell Shoulder Press",muscle:"Shoulders",tips:["Start at ear level, elbows at 90 degrees","Press straight up — don't flare elbows excessively","Full lockout at top","Don't arch lower back excessively"],yt:"https://www.youtube.com/results?search_query=dumbbell+shoulder+press+form"},
+  {name:"Lateral Raise",muscle:"Shoulders",tips:["Slight bend in elbows","Raise to shoulder height — no higher","Lead with elbows, not hands","Control the descent slowly"],yt:"https://www.youtube.com/results?search_query=lateral+raise+form+tutorial"},
+  {name:"Front Raise",muscle:"Shoulders",tips:["Keep arms almost straight","Raise to shoulder height","Don't swing or use momentum","Alternate arms or do both together"],yt:"https://www.youtube.com/results?search_query=front+raise+form+tutorial"},
+  {name:"Arnold Press",muscle:"Shoulders",tips:["Rotate palms as you press — start facing you, finish facing away","Full range of motion","Controlled rotation throughout","Slightly slower than regular press"],yt:"https://www.youtube.com/results?search_query=arnold+press+form+tutorial"},
+  // ARMS
+  {name:"Dumbbell Curls",muscle:"Arms",tips:["Keep elbows pinned to sides","Full supination at the top","Control the descent — don't drop","Don't swing hips for momentum"],yt:"https://www.youtube.com/results?search_query=dumbbell+curl+form+tutorial"},
+  {name:"Hammer Curls",muscle:"Arms",tips:["Neutral grip (thumbs up) throughout","Great for brachialis and forearms","Keep elbows stationary","Squeeze hard at top"],yt:"https://www.youtube.com/results?search_query=hammer+curl+form+tutorial"},
+  {name:"Barbell Curl",muscle:"Arms",tips:["Shoulder width grip","Don't let elbows drift forward","Full range of motion","Slow on the way down"],yt:"https://www.youtube.com/results?search_query=barbell+curl+form+tutorial"},
+  {name:"Preacher Curl",muscle:"Arms",tips:["Full stretch at bottom — don't skip it","Don't swing at the top","Go slow — especially on descent","Use EZ bar or dumbbell"],yt:"https://www.youtube.com/results?search_query=preacher+curl+form+tutorial"},
+  {name:"Tricep Pushdowns",muscle:"Arms",tips:["Keep elbows pinned to sides — don't let them flare","Full lockout at bottom","Straight bar or rope both work","Lean slightly forward"],yt:"https://www.youtube.com/results?search_query=tricep+pushdown+form+tutorial"},
+  {name:"Skull Crushers",muscle:"Arms",tips:["Lower bar to forehead or behind head","Keep upper arms perpendicular to floor","Don't flare elbows","Use EZ bar to reduce wrist stress"],yt:"https://www.youtube.com/results?search_query=skull+crushers+form+tutorial"},
+  {name:"Tricep Overhead Extension",muscle:"Arms",tips:["Keep elbows close to head","Full stretch at bottom","Don't let elbows flare wide","Can use dumbbell, cable, or EZ bar"],yt:"https://www.youtube.com/results?search_query=overhead+tricep+extension+form"},
+  {name:"Close Grip Bench Press",muscle:"Arms",tips:["Grip shoulder width — not too close","Keep elbows tucked","Full range of motion","Great compound tricep movement"],yt:"https://www.youtube.com/results?search_query=close+grip+bench+press+form"},
+  // LEGS
+  {name:"Back Squat",muscle:"Legs",tips:["Bar on upper traps (high bar) or rear delts (low bar)","Break at hips and knees simultaneously","Knees track over toes","Hit parallel or below — don't cut depth"],yt:"https://www.youtube.com/results?search_query=back+squat+form+tutorial"},
+  {name:"Front Squat",muscle:"Legs",tips:["Elbows high, upper arms parallel to floor","More upright torso than back squat","Knees track over toes","Very quad dominant"],yt:"https://www.youtube.com/results?search_query=front+squat+form+tutorial"},
+  {name:"Leg Press",muscle:"Legs",tips:["Don't lock knees out fully at top","Feet higher on platform = more hamstrings","Feet lower = more quads","Never let lower back round off pad"],yt:"https://www.youtube.com/results?search_query=leg+press+form+tutorial"},
+  {name:"Romanian Deadlift",muscle:"Legs",tips:["Hinge at hips — keep bar close to legs","Feel the hamstring stretch before reversing","Slight bend in knees throughout","Drive hips forward to stand"],yt:"https://www.youtube.com/results?search_query=romanian+deadlift+form+tutorial"},
+  {name:"Leg Curl",muscle:"Legs",tips:["Full range of motion","Control the return — don't let weight snap","Squeeze at full curl position","Keep hips on pad"],yt:"https://www.youtube.com/results?search_query=leg+curl+form+tutorial"},
+  {name:"Leg Extension",muscle:"Legs",tips:["Squeeze hard at the top","Don't use momentum","Control the descent","Avoid if you have knee pain"],yt:"https://www.youtube.com/results?search_query=leg+extension+form+tutorial"},
+  {name:"Walking Lunges",muscle:"Legs",tips:["Long stride — front knee stays over ankle","Back knee lightly touches floor","Keep torso upright","Alternate legs each step"],yt:"https://www.youtube.com/results?search_query=walking+lunges+form+tutorial"},
+  {name:"Bulgarian Split Squat",muscle:"Legs",tips:["Rear foot elevated on bench","Front foot far enough forward so knee doesn't cave","Most challenging single-leg exercise","Go slow — balance is key"],yt:"https://www.youtube.com/results?search_query=bulgarian+split+squat+form+tutorial"},
+  {name:"Hip Thrust",muscle:"Legs",tips:["Upper back on bench, bar over hips","Drive through heels","Full hip extension at top — squeeze glutes hard","Chin tucked throughout"],yt:"https://www.youtube.com/results?search_query=hip+thrust+form+tutorial"},
+  {name:"Calf Raises",muscle:"Legs",tips:["Full stretch at bottom — don't skip it","Squeeze hard at top","Slow tempo — calves respond to time under tension","Can do standing or seated"],yt:"https://www.youtube.com/results?search_query=calf+raises+form+tutorial"},
+  {name:"Seated Calf Raises",muscle:"Legs",tips:["Targets soleus (deeper calf muscle)","Full range of motion — all the way down","Heavy weight with slow tempo","Great complement to standing calf raises"],yt:"https://www.youtube.com/results?search_query=seated+calf+raises+form"},
+  // COMPOUND / FULL BODY
+  {name:"Deadlift",muscle:"Full Body",tips:["Bar over mid-foot, hip width stance","Hinge and grip — push floor away, don't pull","Back stays neutral throughout","Lock hips and knees out simultaneously at top"],yt:"https://www.youtube.com/results?search_query=deadlift+form+tutorial"},
+  {name:"Sumo Deadlift",muscle:"Full Body",tips:["Wide stance, toes pointed out","Grip inside legs","More quad dominant than conventional","Keep chest up throughout"],yt:"https://www.youtube.com/results?search_query=sumo+deadlift+form+tutorial"},
+  {name:"Power Clean",muscle:"Full Body",tips:["Explosive hip drive is the key","Bar stays close to body throughout","Catch in quarter squat position","Learn with light weight first"],yt:"https://www.youtube.com/results?search_query=power+clean+form+tutorial"},
+  // CORE
+  {name:"Hanging Leg Raises",muscle:"Core",tips:["Don't swing — control the movement","Raise legs until parallel or higher","Slow descent to build more strength","Bent knee version is easier"],yt:"https://www.youtube.com/results?search_query=hanging+leg+raises+form+tutorial"},
+  {name:"Plank",muscle:"Core",tips:["Body in straight line — don't let hips sag","Squeeze glutes and abs hard","Breathe normally — don't hold breath","Forearm or straight arm both work"],yt:"https://www.youtube.com/results?search_query=plank+form+tutorial"},
+  {name:"Cable Crunch",muscle:"Core",tips:["Kneel facing cable machine","Round spine — crunch, don't hip hinge","Touch elbows to knees","Weight should be challenging but controlled"],yt:"https://www.youtube.com/results?search_query=cable+crunch+form+tutorial"},
+  {name:"Ab Wheel Rollout",muscle:"Core",tips:["Start on knees","Roll out as far as you can control","Don't let lower back collapse","Pull abs in throughout"],yt:"https://www.youtube.com/results?search_query=ab+wheel+rollout+form+tutorial"},
+  {name:"Russian Twist",muscle:"Core",tips:["Lean back slightly — about 45 degrees","Rotate fully side to side","Can hold weight plate or medicine ball","Feet on floor or elevated for more challenge"],yt:"https://www.youtube.com/results?search_query=russian+twist+form+tutorial"},
+];
+
+const MUSCLES = ["All", ...Array.from(new Set(DB.map(e=>e.muscle)))];
+
+const PROGRAM = [
+  {day:"MON",name:"Upper A",color:"#FF6B2C",exercises:[
+    {name:"Bench Press",sets:4,reps:"5",note:"Main lift — 2 min rest"},
+    {name:"Barbell Row",sets:4,reps:"6",note:"Main lift — 2 min rest"},
+    {name:"Overhead Press",sets:3,reps:"8",note:"60–90 sec rest"},
+    {name:"Pull Up",sets:3,reps:"8",note:"60–90 sec rest"},
+    {name:"Incline Dumbbell Press",sets:3,reps:"10",note:"60–90 sec rest"},
+    {name:"Dumbbell Curls",sets:3,reps:"10",note:"Superset — no rest between ↓",superset:true},
+    {name:"Tricep Pushdowns",sets:3,reps:"12",note:"Superset — 60–90 sec after pair",superset:true},
+  ]},
+  {day:"TUE",name:"Lower A",color:"#3B82F6",exercises:[
+    {name:"Back Squat",sets:4,reps:"5",note:"Main lift — 2 min rest"},
+    {name:"Romanian Deadlift",sets:3,reps:"8",note:"60–90 sec rest"},
+    {name:"Walking Lunges",sets:3,reps:"10 ea leg",note:"60–90 sec rest"},
+    {name:"Leg Curl",sets:3,reps:"12",note:"60–90 sec rest"},
+    {name:"Calf Raises",sets:3,reps:"15",note:"60–90 sec rest"},
+    {name:"Hanging Leg Raises",sets:3,reps:"12",note:"60–90 sec rest"},
+  ]},
+  {day:"THU",name:"Upper B",color:"#A855F7",exercises:[
+    {name:"Incline Bench Press",sets:4,reps:"8",note:"Main lift — 2 min rest"},
+    {name:"Seated Cable Row",sets:4,reps:"10",note:"2 min rest"},
+    {name:"Dumbbell Shoulder Press",sets:3,reps:"10",note:"60–90 sec rest"},
+    {name:"Lat Pulldown",sets:3,reps:"10",note:"60–90 sec rest"},
+    {name:"Lateral Raise",sets:3,reps:"15",note:"Superset — no rest between ↓",superset:true},
+    {name:"Hammer Curls",sets:3,reps:"12",note:"Superset — 60–90 sec after pair",superset:true},
+    {name:"Skull Crushers",sets:3,reps:"12",note:"60–90 sec rest"},
+  ]},
+  {day:"FRI",name:"Lower B",color:"#22C55E",exercises:[
+    {name:"Deadlift",sets:3,reps:"5",note:"Main lift — 2 min rest"},
+    {name:"Front Squat",sets:3,reps:"8",note:"2 min rest"},
+    {name:"Bulgarian Split Squat",sets:3,reps:"10 ea leg",note:"60–90 sec rest"},
+    {name:"Hip Thrust",sets:3,reps:"10",note:"60–90 sec rest"},
+    {name:"Seated Calf Raises",sets:3,reps:"15",note:"Superset — no rest between ↓",superset:true},
+    {name:"Plank",sets:3,reps:"hold",note:"Superset — 60–90 sec after pair",superset:true},
+  ]},
+];
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+const SK = "forge_workouts";
+let workouts = [];
+try { workouts = JSON.parse(localStorage.getItem(SK)||"[]"); } catch{}
+let activeWorkout = null;
+let selectedWorkout = null;
+let selectedWorkoutIdx = null;
+let selectedDay = null;
+let editMode = false;
+let activeMuscle = "All";
+let infoExercise = null;
+let pickerContext = "log"; // "log" or "edit"
+
+function save(){ try{localStorage.setItem(SK,JSON.stringify(workouts));}catch{} }
+function fmtDate(iso){ return new Date(iso).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}); }
+function totalVol(w){ return w.exercises.reduce((s,ex)=>s+ex.sets.reduce((s2,set)=>s2+(parseFloat(set.reps)||0)*(parseFloat(set.weight)||0),0),0); }
+function dbLookup(name){ return DB.find(e=>e.name===name)||null; }
+
+// ─── NAVIGATION ─────────────────────────────────────────────────────────────
+function goTo(view){
+  ["home","program","program-day","log","history","detail"].forEach(v=>
+    document.getElementById("screen-"+v).classList.add("hidden"));
+  document.getElementById("screen-"+view).classList.remove("hidden");
+  document.getElementById("nav").classList.toggle("hidden", view==="log");
+  ["home","program","history"].forEach(id=>{
+    const lbl = document.getElementById("nl-"+id);
+    lbl.classList.toggle("active", id===view||(view==="program-day"&&id==="program")||(view==="detail"&&id==="history"));
+  });
+  if(view==="home") renderHome();
+  if(view==="program") renderProgram();
+  if(view==="history"){ editMode=false; renderHistory(); }
+}
+
+// ─── HOME ────────────────────────────────────────────────────────────────────
+function renderHome(){
+  const s = document.getElementById("screen-home");
+  let recentHTML = workouts.length===0
+    ? `<div class="empty-msg">No workouts yet.<br>Get after it.</div>`
+    : workouts.slice(0,3).map((w,i)=>`
+      <div class="summary-card" onclick="openDetail(${i})">
+        <div class="summary-date">${fmtDate(w.date)}</div>
+        <div class="summary-exlist">${w.exercises.map(e=>e.name).join(" · ")}</div>
+        <div class="summary-vol">${totalVol(w).toLocaleString()} lbs total volume</div>
+      </div>`).join("");
+  if(workouts.length>3) recentHTML+=`<button class="ghost-btn" onclick="goTo('history')">View All (${workouts.length})</button>`;
+  s.innerHTML=`
+    <div class="home-header"><div class="logo">FORGE</div><div class="logo-sub">Weight Tracker</div></div>
+    <button class="big-btn" onclick="startWorkout(null)"><span class="big-btn-plus">+</span><span>Start Workout</span></button>
+    <div class="section-label">Recent</div>${recentHTML}`;
+}
+
+// ─── PROGRAM ─────────────────────────────────────────────────────────────────
+function renderProgram(){
+  const s = document.getElementById("screen-program");
+  const days = PROGRAM.map((day,i)=>`
+    <div class="day-card" style="border-left:4px solid ${day.color}" onclick="openDay(${i})">
+      <div class="day-card-top">
+        <div class="day-pill" style="background:${day.color}">${day.day}</div>
+        <div class="day-name">${day.name}</div>
+        <div class="day-arrow">›</div>
+      </div>
+      <div class="day-ex-preview">
+        ${day.exercises.slice(0,3).map(e=>`<span class="day-ex-chip">${e.name}</span>`).join("")}
+        ${day.exercises.length>3?`<span class="day-ex-more">+${day.exercises.length-3} more</span>`:""}
+      </div>
+    </div>`).join("");
+  s.innerHTML=`
+    <div class="home-header"><div class="logo">PROGRAM</div><div class="logo-sub">4-Day Lifting Split</div></div>
+    <div class="prog-note">~1 hour per session · Add weight when all reps feel solid</div>
+    ${days}
+    <div class="progression-box">
+      <div class="progression-title">📈 PROGRESSION</div>
+      <div class="progression-row"><span class="progression-label">Upper body</span><span class="progression-val">+5 lbs</span></div>
+      <div class="progression-row"><span class="progression-label">Lower body</span><span class="progression-val">+5–10 lbs</span></div>
+      <div class="progression-divider">
+        <div class="progression-row"><span class="progression-label">Main lifts rest</span><span class="progression-val">2 min</span></div>
+        <div class="progression-row"><span class="progression-label">Accessories rest</span><span class="progression-val">60–90 sec</span></div>
+        <div class="progression-row"><span class="progression-label">Supersets rest</span><span class="progression-val">Little/none</span></div>
+      </div>
+    </div>`;
+}
+
+function openDay(i){
+  selectedDay = PROGRAM[i];
+  const s = document.getElementById("screen-program-day");
+  const exHTML = selectedDay.exercises.map((ex,idx)=>{
+    const prev = selectedDay.exercises[idx-1];
+    const firstSuper = ex.superset && !(prev&&prev.superset);
+    const dbEx = dbLookup(ex.name);
+    return `${firstSuper?'<div class="superset-label">⚡ SUPERSET</div>':""}
+    <div class="prog-ex-card" style="margin-left:${ex.superset?14:0}px;border-left:3px solid ${ex.superset?selectedDay.color+'55':selectedDay.color}" onclick="showInfo('${ex.name.replace(/'/g,"\\'")}', false)">
+      <div class="prog-ex-row">
+        <div><div class="prog-ex-name">${ex.name}</div><div class="prog-ex-sets">${ex.sets} sets × ${ex.reps} reps</div></div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="sets-badge" style="background:${selectedDay.color}22;color:${selectedDay.color}">${ex.sets}×${ex.reps}</div>
+          ${dbEx?'<span style="font-size:16px;color:#888">ℹ️</span>':""}
+        </div>
+      </div>
+      <div class="prog-ex-note">${ex.note}</div>
+    </div>`;
+  }).join("");
+  s.innerHTML=`
+    <div class="log-header">
+      <button class="back-btn" onclick="goTo('program')">←</button>
+      <div class="log-title"><span style="color:${selectedDay.color}">${selectedDay.day}</span> · ${selectedDay.name}</div>
+      <button class="done-btn" style="background:${selectedDay.color}" onclick="startWorkout(selectedDay.exercises)">Start</button>
+    </div>${exHTML}<div style="height:20px"></div>`;
+  goTo("program-day");
+}
+
+// ─── LOG ─────────────────────────────────────────────────────────────────────
+function startWorkout(prefill){
+  const exercises = prefill
+    ? prefill.map(ex=>({name:ex.name,sets:Array.from({length:ex.sets},()=>({reps:"",weight:""})),note:ex.note||"",superset:!!ex.superset}))
+    : [];
+  activeWorkout={id:Date.now(),date:new Date().toISOString(),exercises};
+  renderLog(); goTo("log");
+}
+
+function renderLog(){
+  const s = document.getElementById("screen-log");
+  const exHTML = activeWorkout.exercises.map((ex,ei)=>`
+    <div class="ex-card${ex.superset?" superset":""}">
+      ${ex.superset?'<div class="superset-tag">⚡ SUPERSET</div>':""}
+      <div class="ex-card-header">
+        <div class="ex-name">${ex.name}</div>
+        <div style="display:flex;gap:4px;">
+          <button class="ex-info-btn" onclick="showInfo('${ex.name.replace(/'/g,"\\'")}',false)" title="How to do this">ℹ️</button>
+          <button class="remove-ex-btn" onclick="removeExFromLog(${ei})">✕</button>
+        </div>
+      </div>
+      ${ex.note?`<div class="ex-note-small">${ex.note}</div>`:""}
+      <div class="set-grid">
+        <div class="set-col-label">#</div><div class="set-col-label">lbs</div><div class="set-col-label">Reps</div><div></div>
+      </div>
+      ${ex.sets.map((set,si)=>`
+        <div class="set-grid">
+          <div class="set-num">${si+1}</div>
+          <input class="set-input" type="number" inputmode="decimal" placeholder="0" value="${set.weight}" oninput="updateLogSet(${ei},${si},'weight',this.value)"/>
+          <input class="set-input" type="number" inputmode="numeric" placeholder="0" value="${set.reps}" oninput="updateLogSet(${ei},${si},'reps',this.value)"/>
+          <button class="remove-set-btn" onclick="removeLogSet(${ei},${si})">−</button>
+        </div>`).join("")}
+      <button class="add-set-btn" onclick="addLogSet(${ei})">+ Add Set</button>
+    </div>`).join("");
+  s.innerHTML=`
+    <div class="log-header">
+      <button class="back-btn" onclick="cancelWorkout()">✕</button>
+      <div class="log-title">Today's Workout</div>
+      <button class="done-btn" onclick="finishWorkout()">Done</button>
+    </div>
+    <div class="log-date">${fmtDate(activeWorkout.date)}</div>
+    ${exHTML}
+    <button class="add-ex-btn" onclick="showExPicker('log')">+ Add Exercise</button>`;
+}
+
+function addLogSet(ei){ activeWorkout.exercises[ei].sets.push({reps:"",weight:""}); renderLog(); }
+function removeLogSet(ei,si){ if(activeWorkout.exercises[ei].sets.length>1) activeWorkout.exercises[ei].sets.splice(si,1); renderLog(); }
+function updateLogSet(ei,si,field,val){ activeWorkout.exercises[ei].sets[si][field]=val; }
+function removeExFromLog(ei){ activeWorkout.exercises.splice(ei,1); renderLog(); }
+function cancelWorkout(){ activeWorkout=null; goTo("home"); }
+function finishWorkout(){
+  if(!activeWorkout.exercises.length){ goTo("home"); return; }
+  workouts.unshift(activeWorkout); save(); activeWorkout=null; goTo("home");
+}
+
+// ─── HISTORY ─────────────────────────────────────────────────────────────────
+function renderHistory(){
+  const s = document.getElementById("screen-history");
+  const list = workouts.length===0
+    ? `<div class="empty-msg">No workouts logged yet.</div>`
+    : workouts.map((w,i)=>`
+      <div class="summary-card" onclick="openDetail(${i})">
+        <div class="summary-date">${fmtDate(w.date)}</div>
+        <div class="summary-exlist">${w.exercises.map(e=>e.name).join(" · ")}</div>
+        <div class="summary-vol">${totalVol(w).toLocaleString()} lbs total volume</div>
+      </div>`).join("");
+  s.innerHTML=`
+    <div class="log-header">
+      <button class="back-btn" onclick="goTo('home')">←</button>
+      <div class="log-title">History</div><div style="width:48px"></div>
+    </div>${list}`;
+}
+
+// ─── DETAIL / EDIT ───────────────────────────────────────────────────────────
+function openDetail(i){
+  selectedWorkoutIdx = i;
+  selectedWorkout = workouts[i];
+  editMode = false;
+  renderDetail();
+  goTo("detail");
+}
+
+function renderDetail(){
+  const s = document.getElementById("screen-detail");
+  const w = selectedWorkout;
+  const i = selectedWorkoutIdx;
+
+  if(!editMode){
+    const exHTML = w.exercises.map((ex,ei)=>`
+      <div class="ex-card">
+        <div class="ex-card-header">
+          <div class="ex-name">${ex.name}</div>
+          <button class="ex-info-btn" onclick="showInfo('${ex.name.replace(/'/g,"\\'")}',false)">ℹ️</button>
+        </div>
+        ${ex.sets.map((set,si)=>`
+          <div class="detail-set-row">
+            <span class="detail-set-num">Set ${si+1}</span>
+            <span class="detail-set-val">${set.weight||"—"} lbs × ${set.reps||"—"} reps</span>
+          </div>`).join("")}
+      </div>`).join("");
+    s.innerHTML=`
+      <div class="log-header">
+        <button class="back-btn" onclick="goTo('history')">←</button>
+        <div class="log-title">${fmtDate(w.date)}</div>
+        <div style="display:flex;gap:6px;">
+          <button class="edit-btn" onclick="toggleEdit()">Edit</button>
+          <button class="delete-btn" onclick="deleteWorkout(${i})">🗑</button>
+        </div>
+      </div>
+      <div class="vol-big">${totalVol(w).toLocaleString()}<span class="vol-unit"> lbs</span></div>
+      <div class="vol-label">Total Volume</div>${exHTML}`;
+  } else {
+    // EDIT MODE
+    const exHTML = w.exercises.map((ex,ei)=>`
+      <div class="ex-card">
+        <div class="ex-card-header">
+          <div class="ex-name" style="font-size:15px">${ex.name}</div>
+          <button class="remove-ex-btn" onclick="removeExFromSaved(${ei})" style="color:#ff4444;">✕ Remove</button>
+        </div>
+        <div class="set-grid">
+          <div class="set-col-label">#</div><div class="set-col-label">lbs</div><div class="set-col-label">Reps</div><div></div>
+        </div>
+        ${ex.sets.map((set,si)=>`
+          <div class="set-grid">
+            <div class="set-num">${si+1}</div>
+            <input class="edit-set-input" type="number" inputmode="decimal" placeholder="0" value="${set.weight}" oninput="updateSavedSet(${ei},${si},'weight',this.value)"/>
+            <input class="edit-set-input" type="number" inputmode="numeric" placeholder="0" value="${set.reps}" oninput="updateSavedSet(${ei},${si},'reps',this.value)"/>
+            <button class="remove-set-btn" onclick="removeSavedSet(${ei},${si})">−</button>
+          </div>`).join("")}
+        <button class="add-set-btn" onclick="addSavedSet(${ei})">+ Add Set</button>
+      </div>`).join("");
+    s.innerHTML=`
+      <div class="log-header">
+        <button class="back-btn" onclick="toggleEdit()">Cancel</button>
+        <div class="log-title" style="color:#FF6B2C">Edit Workout</div>
+        <button class="done-btn" onclick="saveEdits()">Save</button>
+      </div>
+      <div class="log-date">${fmtDate(w.date)}</div>
+      ${exHTML}
+      <button class="add-ex-btn" onclick="showExPicker('edit')">+ Add Exercise</button>`;
+  }
+}
+
+function toggleEdit(){ editMode=!editMode; renderDetail(); }
+
+function updateSavedSet(ei,si,field,val){ selectedWorkout.exercises[ei].sets[si][field]=val; }
+function addSavedSet(ei){ selectedWorkout.exercises[ei].sets.push({reps:"",weight:""}); renderDetail(); }
+function removeSavedSet(ei,si){
+  if(selectedWorkout.exercises[ei].sets.length>1){ selectedWorkout.exercises[ei].sets.splice(si,1); renderDetail(); }
+}
+function removeExFromSaved(ei){ selectedWorkout.exercises.splice(ei,1); renderDetail(); }
+function saveEdits(){
+  workouts[selectedWorkoutIdx]=selectedWorkout; save(); editMode=false; renderDetail();
+}
+function deleteWorkout(i){
+  if(!confirm("Delete this workout?")) return;
+  workouts.splice(i,1); save(); goTo("history");
+}
+
+// ─── EXERCISE PICKER ─────────────────────────────────────────────────────────
+function showExPicker(context){
+  pickerContext = context;
+  activeMuscle = "All";
+  document.getElementById("modal-ex").classList.remove("hidden");
+  const tabs = document.getElementById("muscle-tabs");
+  tabs.innerHTML = MUSCLES.map(m=>`<button class="muscle-tab${m==="All"?" active":""}" onclick="filterMuscle('${m}')">${m}</button>`).join("");
+  const search = document.getElementById("ex-search");
+  search.value="";
+  search.oninput = e=>renderExList(e.target.value, activeMuscle);
+  document.getElementById("modal-ex").onclick = e=>{ if(e.target===document.getElementById("modal-ex")) hideExPicker(); };
+  renderExList("","All");
+  search.focus();
+}
+
+function filterMuscle(m){
+  activeMuscle = m;
+  document.querySelectorAll(".muscle-tab").forEach(t=>t.classList.toggle("active", t.textContent===m));
+  renderExList(document.getElementById("ex-search").value, m);
+}
+
+function renderExList(q, muscle){
+  const filtered = DB.filter(e=>{
+    const matchQ = e.name.toLowerCase().includes(q.toLowerCase());
+    const matchM = muscle==="All"||e.muscle===muscle;
+    return matchQ && matchM;
+  });
+  const list = document.getElementById("ex-list");
+  list.innerHTML = filtered.length
+    ? filtered.map(e=>`
+        <div class="ex-item">
+          <span onclick="addExerciseFromPicker('${e.name.replace(/'/g,"\\'")}');" style="flex:1;padding:4px 0">${e.name}</span>
+          <div class="ex-item-right">
+            <span class="ex-muscle-tag">${e.muscle}</span>
+            <button class="ex-info-btn" onclick="showInfo('${e.name.replace(/'/g,"\\'")}',true)">ℹ️</button>
+          </div>
+        </div>`).join("")
+    : `<div class="empty-msg">No exercises found</div>`;
+}
+
+function hideExPicker(){ document.getElementById("modal-ex").classList.add("hidden"); }
+
+function addExerciseFromPicker(name){
+  if(pickerContext==="log"){
+    activeWorkout.exercises.push({name,sets:[{reps:"",weight:""}],note:"",superset:false});
+    hideExPicker(); renderLog();
+  } else if(pickerContext==="edit"){
+    selectedWorkout.exercises.push({name,sets:[{reps:"",weight:""}],note:"",superset:false});
+    hideExPicker(); renderDetail();
+  }
+}
+
+// ─── EXERCISE INFO ───────────────────────────────────────────────────────────
+function showInfo(name, fromPicker){
+  const ex = dbLookup(name);
+  if(!ex){ return; }
+  infoExercise = ex;
+  const modal = document.getElementById("info-modal-content");
+  const addBtn = (pickerContext==="log"||pickerContext==="edit")&&fromPicker
+    ? `<button class="add-from-info-btn" onclick="addExerciseFromPicker('${ex.name.replace(/'/g,"\\'")}');hideInfo();">+ Add to Workout</button>`
+    : "";
+  modal.innerHTML=`
+    <div class="info-modal-header">
+      <div class="info-modal-name">${ex.name}</div>
+      <button class="info-close-btn" onclick="hideInfo()">✕</button>
+    </div>
+    <div class="info-muscle-badge">${ex.muscle}</div>
+    <div class="info-section-title">Form Tips</div>
+    <ul class="info-tips">${ex.tips.map(t=>`<li>${t}</li>`).join("")}</ul>
+    <a href="${ex.yt}" target="_blank" style="text-decoration:none">
+      <button class="yt-btn"><span class="yt-icon">▶️</span>Watch Tutorial on YouTube</button>
+    </a>
+    ${addBtn}`;
+  document.getElementById("modal-info").classList.remove("hidden");
+  document.getElementById("modal-info").onclick = e=>{ if(e.target===document.getElementById("modal-info")) hideInfo(); };
+}
+
+function hideInfo(){ document.getElementById("modal-info").classList.add("hidden"); }
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+goTo("home");
+</script>
+</body>
+</html>
