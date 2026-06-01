@@ -25,51 +25,54 @@ body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F
 .done-btn{background:#FF6B2C;border:none;color:#fff;border-radius:10px;padding:8px 18px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;flex-shrink:0;}
 .edit-btn{background:#222228;border:none;color:#F0F0F0;border-radius:10px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;flex-shrink:0;}
 .delete-btn{background:transparent;border:none;font-size:20px;cursor:pointer;padding:8px;flex-shrink:0;}
-.log-header{display:flex;align-items:center;justify-content:space-between;padding-top:56px;padding-bottom:20px;gap:8px;}
+.log-header{display:flex;align-items:center;justify-content:space-between;padding-top:56px;padding-bottom:16px;gap:8px;}
 .log-title{font-size:17px;font-weight:800;letter-spacing:0.5px;flex:1;text-align:center;}
-.log-date{font-size:13px;color:#888;margin-bottom:20px;letter-spacing:1px;}
+.log-date{font-size:13px;color:#888;margin-bottom:16px;letter-spacing:1px;}
 .summary-card{background:#1A1A1E;border-radius:14px;padding:16px 18px;margin-bottom:12px;cursor:pointer;border-left:4px solid #FF6B2C;}
 .summary-date{font-size:16px;font-weight:700;margin-bottom:4px;}
 .summary-exlist{font-size:13px;color:#888;margin-bottom:6px;line-height:1.4;}
 .summary-vol{font-size:14px;color:#FF6B2C;font-weight:700;}
 /* Exercise cards */
-.ex-card{background:#1A1A1E;border-radius:14px;padding:14px 14px 10px;margin-bottom:14px;border-left:3px solid #FF6B2C;}
+.ex-card{background:#1A1A1E;border-radius:14px;padding:14px 14px 10px;margin-bottom:12px;border-left:3px solid #FF6B2C;}
 .ex-card.superset{border-left:3px solid #FF6B2C44;}
 .ex-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
-.ex-name{font-size:17px;font-weight:800;color:#FF6B2C;letter-spacing:0.5px;flex:1;}
-.ex-note-small{font-size:11px;color:#888;margin-bottom:8px;font-style:italic;}
-.remove-ex-btn{background:transparent;border:none;color:#888;font-size:16px;cursor:pointer;padding:4px 6px;}
-.superset-tag{font-size:9px;font-weight:900;color:#FF6B2C;letter-spacing:2px;margin-bottom:6px;}
-.ex-info-btn{background:transparent;border:none;color:#FF6B2C;font-size:16px;cursor:pointer;padding:4px 6px;line-height:1;}
+.ex-name{font-size:16px;font-weight:800;color:#FF6B2C;letter-spacing:0.5px;flex:1;}
+.ex-note-small{font-size:11px;color:#888;margin-bottom:6px;font-style:italic;}
+.remove-ex-btn{background:transparent;border:none;color:#888;font-size:15px;cursor:pointer;padding:4px 6px;}
+.superset-tag{font-size:9px;font-weight:900;color:#FF6B2C;letter-spacing:2px;margin-bottom:5px;}
+.ex-info-btn{background:transparent;border:none;color:#FF6B2C;font-size:15px;cursor:pointer;padding:4px 6px;line-height:1;}
 /* Last session ref */
-.last-ref{background:#222228;border-radius:8px;padding:6px 10px;margin-bottom:10px;font-size:11px;color:#888;}
-.last-ref-title{color:#FF6B2C;font-weight:700;letter-spacing:1px;margin-bottom:3px;}
-.last-ref-row{display:flex;gap:12px;flex-wrap:wrap;}
-.last-ref-set{color:#aaa;}
+.last-ref{background:#1e1e24;border-radius:8px;padding:6px 10px;margin-bottom:8px;font-size:11px;border-left:2px solid #FF6B2C44;}
+.last-ref-title{color:#FF6B2C88;font-weight:700;letter-spacing:1px;margin-bottom:3px;font-size:10px;}
+.last-ref-row{display:flex;gap:10px;flex-wrap:wrap;}
+.last-ref-set{color:#666;}
 /* Sets */
-.set-grid{display:grid;grid-template-columns:26px 1fr 1fr 44px;gap:6px;align-items:center;margin-bottom:6px;}
-.set-col-label{font-size:11px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.set-grid{display:grid;grid-template-columns:24px 1fr 1fr 38px;gap:5px;align-items:center;margin-bottom:5px;}
+.set-col-label{font-size:10px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
 .set-num{font-size:13px;color:#888;font-weight:700;text-align:center;}
-.set-input{background:#222228;border:none;border-radius:8px;color:#F0F0F0;font-size:16px;font-weight:700;font-family:inherit;padding:9px 6px;text-align:center;width:100%;outline:none;}
-.set-input.logged{background:#1e2e1e;color:#4ade80;}
-.done-set-btn{background:#222228;border:none;color:#888;border-radius:8px;font-size:18px;cursor:pointer;padding:0;height:38px;width:38px;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:background 0.15s;}
+.set-input{background:#222228;border:none;border-radius:8px;color:#F0F0F0;font-size:16px;font-weight:700;font-family:inherit;padding:9px 4px;text-align:center;width:100%;outline:none;}
+.set-input.logged{background:#1a2e1a;color:#4ade80;}
+.done-set-btn{background:#222228;border:none;color:#888;border-radius:8px;font-size:16px;cursor:pointer;height:36px;width:36px;display:flex;align-items:center;justify-content:center;font-family:inherit;}
 .done-set-btn.logged{background:#16a34a22;color:#4ade80;}
-.add-set-btn{background:transparent;border:1px dashed #222228;color:#888;border-radius:8px;padding:7px;width:100%;font-size:13px;cursor:pointer;font-family:inherit;margin-top:4px;letter-spacing:0.5px;}
-.add-ex-btn{background:transparent;border:2px dashed #FF6B2C44;color:#FF6B2C;border-radius:14px;padding:14px;width:100%;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;margin-top:8px;}
-/* Rest Timer */
-.timer-bar{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#1a1a1e;border-bottom:2px solid #FF6B2C;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:12px;}
-.timer-count{font-size:28px;font-weight:900;color:#FF6B2C;letter-spacing:2px;min-width:60px;}
-.timer-label{font-size:12px;color:#888;font-weight:700;letter-spacing:2px;text-transform:uppercase;flex:1;}
+.add-set-btn{background:transparent;border:1px dashed #2a2a2a;color:#666;border-radius:8px;padding:6px;width:100%;font-size:12px;cursor:pointer;font-family:inherit;margin-top:4px;}
+.add-ex-btn{background:transparent;border:2px dashed #FF6B2C33;color:#FF6B2C;border-radius:14px;padding:14px;width:100%;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:1px;margin-top:8px;}
+/* In-workout history */
+.inwork-hist{background:#111118;border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:11px;}
+.inwork-hist-title{color:#888;font-weight:700;letter-spacing:1px;font-size:10px;margin-bottom:4px;}
+.inwork-hist-row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #1e1e24;}
+.inwork-hist-row:last-child{border-bottom:none;}
+.inwork-hist-date{color:#666;}
+.inwork-hist-val{color:#aaa;font-weight:700;}
+/* Timer bar - moved to bottom above nav */
+.timer-bar{position:fixed;bottom:calc(56px + env(safe-area-inset-bottom, 16px));left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#1a1a1e;border-top:2px solid #FF6B2C;z-index:150;padding:10px 16px 8px;}
+.timer-top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.timer-count{font-size:32px;font-weight:900;color:#FF6B2C;letter-spacing:2px;line-height:1;}
+.timer-label{font-size:11px;color:#888;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+.timer-controls{display:flex;align-items:center;gap:8px;}
+.timer-adj{background:#222228;border:none;color:#F0F0F0;border-radius:8px;padding:6px 12px;font-family:inherit;font-size:14px;font-weight:800;cursor:pointer;}
 .timer-skip{background:#FF6B2C;border:none;color:#fff;border-radius:8px;padding:6px 14px;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;}
-.timer-progress{position:absolute;bottom:0;left:0;height:2px;background:#FF6B2C;transition:width 0.9s linear;}
-/* Progress screen */
-.progress-ex-card{background:#1A1A1E;border-radius:12px;padding:14px;margin-bottom:12px;cursor:pointer;}
-.progress-ex-name{font-size:18px;font-weight:800;color:#FF6B2C;margin-bottom:4px;}
-.progress-ex-best{font-size:13px;color:#888;}
-.progress-ex-best span{color:#F0F0F0;font-weight:700;}
-.progress-history-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #222228;}
-.progress-history-date{font-size:13px;color:#888;}
-.progress-history-sets{font-size:14px;font-weight:700;}
+.timer-progress-track{background:#222228;border-radius:4px;height:4px;overflow:hidden;}
+.timer-progress-fill{height:100%;background:#FF6B2C;border-radius:4px;transition:width 0.9s linear;}
 /* Program */
 .prog-note{font-size:13px;color:#888;margin-bottom:20px;line-height:1.6;}
 .day-card{background:#1A1A1E;border-radius:14px;padding:16px;margin-bottom:12px;cursor:pointer;}
@@ -100,6 +103,13 @@ body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F
 .detail-set-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #222228;}
 .detail-set-num{color:#888;font-size:14px;}
 .detail-set-val{font-size:15px;font-weight:700;}
+/* Progress */
+.progress-ex-card{background:#1A1A1E;border-radius:12px;padding:14px;margin-bottom:12px;cursor:pointer;}
+.progress-ex-name{font-size:18px;font-weight:800;color:#FF6B2C;margin-bottom:4px;}
+.progress-ex-best{font-size:13px;color:#888;}
+.progress-history-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #222228;}
+.progress-history-date{font-size:13px;color:#888;}
+.progress-history-sets{font-size:14px;font-weight:700;}
 /* Nav */
 .nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#121214;border-top:1px solid #222228;display:flex;padding-bottom:env(safe-area-inset-bottom,16px);}
 .nav-btn{flex:1;background:transparent;border:none;color:#F0F0F0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 4px;cursor:pointer;font-family:inherit;}
@@ -116,12 +126,12 @@ body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F
 .muscle-tab{background:#222228;border:none;color:#888;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap;}
 .muscle-tab.active{background:#FF6B2C;color:#fff;}
 .ex-list{overflow-y:auto;flex:1;}
-.ex-item{display:flex;align-items:center;width:100%;background:transparent;border:none;border-bottom:1px solid #222228;color:#F0F0F0;font-family:inherit;font-size:16px;font-weight:600;padding:12px 4px;cursor:pointer;}
+.ex-item{display:flex;align-items:center;width:100%;background:transparent;border:none;border-bottom:1px solid #222228;color:#F0F0F0;font-family:inherit;font-size:15px;font-weight:600;padding:11px 4px;cursor:pointer;}
 .ex-muscle-tag{font-size:10px;color:#888;background:#222228;border-radius:4px;padding:2px 6px;font-weight:700;margin-left:8px;flex-shrink:0;}
 .info-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:flex-end;z-index:300;}
 .info-modal{background:#1C1C1F;border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-height:90vh;overflow-y:auto;}
 .info-modal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
-.info-modal-name{font-size:26px;font-weight:900;color:#FF6B2C;letter-spacing:1px;flex:1;}
+.info-modal-name{font-size:24px;font-weight:900;color:#FF6B2C;letter-spacing:1px;flex:1;}
 .info-close-btn{background:#222228;border:none;color:#F0F0F0;border-radius:10px;padding:8px 12px;font-size:16px;cursor:pointer;font-family:inherit;}
 .info-muscle-badge{display:inline-block;background:#FF6B2C22;color:#FF6B2C;border-radius:8px;padding:4px 12px;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:16px;}
 .info-section-title{font-size:13px;font-weight:900;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;margin-top:16px;}
@@ -131,36 +141,46 @@ body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F
 .yt-btn{display:flex;align-items:center;gap:10px;background:#FF000022;border:1px solid #FF000044;color:#ff4444;border-radius:12px;padding:14px 16px;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;width:100%;margin-top:16px;}
 .add-from-info-btn{display:flex;align-items:center;justify-content:center;background:#FF6B2C;border:none;color:#fff;border-radius:12px;padding:14px 16px;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;width:100%;margin-top:10px;}
 .edit-set-input{background:#2a2a30;border:1px solid #FF6B2C44;border-radius:8px;color:#F0F0F0;font-size:16px;font-weight:700;font-family:inherit;padding:10px 8px;text-align:center;width:100%;outline:none;}
+/* Program edit */
 .prog-edit-card{background:#1A1A1E;border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
 .prog-sets-input{background:#222228;border:none;border-radius:6px;color:#F0F0F0;font-size:14px;font-weight:700;font-family:inherit;padding:6px 8px;text-align:center;width:48px;outline:none;}
 .prog-reps-input{background:#222228;border:none;border-radius:6px;color:#F0F0F0;font-size:14px;font-weight:700;font-family:inherit;padding:6px 8px;text-align:center;width:60px;outline:none;}
 .reset-btn{background:transparent;border:1px solid #444;color:#888;border-radius:10px;padding:10px 16px;font-family:inherit;font-size:13px;cursor:pointer;width:100%;margin-top:12px;}
 .prog-remove-btn{background:transparent;border:none;color:#ff4444;font-size:18px;cursor:pointer;padding:4px 8px;flex-shrink:0;}
-/* Timer done flash */
-@keyframes flash{0%,100%{background:#0E0E10}50%{background:#1a3a1a}}
-.timer-done{animation:flash 0.4s ease 3;}
 /* Bible modal */
-.bible-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;z-index:400;padding:24px;}
+.bible-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:400;padding:24px;}
 .bible-modal{background:#1C1C1F;border-radius:20px;padding:28px 24px 24px;width:100%;max-width:390px;text-align:center;border-top:4px solid #FF6B2C;}
 .bible-cross{font-size:32px;margin-bottom:14px;}
 .bible-verse{font-size:17px;font-weight:600;line-height:1.65;color:#F0F0F0;margin-bottom:14px;font-style:italic;}
 .bible-ref{font-size:13px;font-weight:900;color:#FF6B2C;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;}
 .bible-close{background:#FF6B2C;border:none;color:#fff;border-radius:12px;padding:14px 24px;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;width:100%;letter-spacing:1px;}
+/* Save draft banner */
+.draft-banner{background:#1a2a1a;border:1px solid #22c55e44;border-radius:10px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;font-size:13px;}
+.draft-banner-text{color:#4ade80;font-weight:700;}
+.draft-resume-btn{background:#22c55e;border:none;color:#fff;border-radius:8px;padding:6px 14px;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;}
+@keyframes flash{0%,100%{background:#0E0E10}50%{background:#1a3a1a}}
+.timer-done{animation:flash 0.4s ease 3;}
 </style>
 </head>
 <body>
 <div id="app">
+
+  <!-- Timer bar above nav -->
   <div id="timer-bar" class="timer-bar hidden">
-    <div>
-      <div class="timer-label">REST</div>
-      <div class="timer-count" id="timer-count">2:00</div>
-    </div>
-    <div style="flex:1;padding:0 12px;">
-      <div style="background:#222228;border-radius:4px;height:6px;overflow:hidden;">
-        <div id="timer-progress" style="height:100%;background:#FF6B2C;width:100%;transition:width 1s linear;"></div>
+    <div class="timer-top-row">
+      <div>
+        <div class="timer-label">REST</div>
+        <div class="timer-count" id="timer-count">1:30</div>
+      </div>
+      <div class="timer-controls">
+        <button class="timer-adj" onclick="adjustTimer(-15)">−15s</button>
+        <button class="timer-adj" onclick="adjustTimer(15)">+15s</button>
+        <button class="timer-skip" onclick="skipTimer()">Done</button>
       </div>
     </div>
-    <button class="timer-skip" onclick="skipTimer()">Skip</button>
+    <div class="timer-progress-track">
+      <div class="timer-progress-fill" id="timer-progress" style="width:100%"></div>
+    </div>
   </div>
 
   <div id="screen-home" class="screen hidden"></div>
@@ -181,6 +201,10 @@ body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F
     </div>
   </div>
 
+  <div id="modal-info" class="info-modal-overlay hidden">
+    <div class="info-modal" id="info-modal-content"></div>
+  </div>
+
   <div id="modal-bible" class="bible-overlay hidden">
     <div class="bible-modal">
       <div class="bible-cross">✝️</div>
@@ -188,10 +212,6 @@ body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F
       <div class="bible-ref" id="bible-ref"></div>
       <button class="bible-close" onclick="closeBible()">Rest Up · Start Next Set</button>
     </div>
-  </div>
-
-  <div id="modal-info" class="info-modal-overlay hidden">
-    <div class="info-modal" id="info-modal-content"></div>
   </div>
 
   <div class="nav" id="nav">
@@ -203,7 +223,7 @@ body{background:#000;font-family:'Barlow Condensed',Impact,sans-serif;color:#F0F
 </div>
 
 <script>
-// ── DB ────────────────────────────────────────────────────────────────────────
+// ── EXERCISE DATABASE ─────────────────────────────────────────────────────────
 const DB=[
   {name:"Bench Press",muscle:"Chest",tips:["Keep shoulder blades pinched and retracted","Bar touches lower chest, not neck","Drive feet into floor for full body tension","Grip slightly wider than shoulder width"],yt:"https://www.youtube.com/results?search_query=bench+press+form+tutorial"},
   {name:"Incline Bench Press",muscle:"Chest",tips:["Set bench to 30–45 degrees","Focus on upper chest stretch at bottom","Don't let elbows flare too wide","Control the descent — 2 sec down"],yt:"https://www.youtube.com/results?search_query=incline+bench+press+form"},
@@ -243,6 +263,7 @@ const DB=[
   {name:"Hip Thrust",muscle:"Legs",tips:["Upper back on bench, bar over hips","Drive through heels","Full hip extension at top","Squeeze glutes hard, chin tucked"],yt:"https://www.youtube.com/results?search_query=hip+thrust+form+tutorial"},
   {name:"Calf Raises",muscle:"Legs",tips:["Full stretch at bottom","Squeeze hard at top","Slow tempo — calves need time under tension","Standing or seated both work"],yt:"https://www.youtube.com/results?search_query=calf+raises+form+tutorial"},
   {name:"Seated Calf Raises",muscle:"Legs",tips:["Targets soleus (deeper calf muscle)","Full range of motion","Heavy weight with slow tempo","Great complement to standing calf raises"],yt:"https://www.youtube.com/results?search_query=seated+calf+raises+form"},
+  {name:"Seated Box Jumps",muscle:"Legs",tips:["Sit on box or bench, feet flat","Explode up from seated position — no countermovement","Land softly with knees bent","Pure rate of force development — focus on max effort each rep"],yt:"https://www.youtube.com/results?search_query=seated+box+jump+tutorial"},
   {name:"Deadlift",muscle:"Full Body",tips:["Bar over mid-foot, hip width stance","Push floor away — don't think about pulling","Back stays neutral throughout","Lock hips and knees out at top simultaneously"],yt:"https://www.youtube.com/results?search_query=deadlift+form+tutorial"},
   {name:"Sumo Deadlift",muscle:"Full Body",tips:["Wide stance, toes pointed out","Grip inside legs","More quad dominant than conventional","Keep chest up throughout"],yt:"https://www.youtube.com/results?search_query=sumo+deadlift+form+tutorial"},
   {name:"Power Clean",muscle:"Full Body",tips:["Explosive hip drive is the key","Bar stays close to body","Catch in quarter squat position","Learn with light weight first"],yt:"https://www.youtube.com/results?search_query=power+clean+form+tutorial"},
@@ -251,10 +272,159 @@ const DB=[
   {name:"Cable Crunch",muscle:"Core",tips:["Kneel facing cable machine","Round spine — crunch don't hip hinge","Touch elbows to knees","Weight should be challenging but controlled"],yt:"https://www.youtube.com/results?search_query=cable+crunch+form+tutorial"},
   {name:"Ab Wheel Rollout",muscle:"Core",tips:["Start on knees","Roll out as far as you can control","Don't let lower back collapse","Pull abs in throughout"],yt:"https://www.youtube.com/results?search_query=ab+wheel+rollout+form+tutorial"},
   {name:"Russian Twist",muscle:"Core",tips:["Lean back about 45 degrees","Rotate fully side to side","Can hold weight plate or medicine ball","Feet on floor or elevated for challenge"],yt:"https://www.youtube.com/results?search_query=russian+twist+form+tutorial"},
+  // ── CHEST (extra) ──
+  {name:"Landmine Press",muscle:"Chest",tips:["Great shoulder-friendly pressing option","Press at an angle — targets upper chest","Keep core braced throughout","Can do single arm or both"],yt:"https://www.youtube.com/results?search_query=landmine+press+form"},
+  {name:"Machine Chest Press",muscle:"Chest",tips:["Adjust seat so handles are at chest height","Full range of motion — feel the stretch","Control the return — don't let weight stack slam","Good for high reps and pump work"],yt:"https://www.youtube.com/results?search_query=machine+chest+press+form"},
+  {name:"Pec Deck",muscle:"Chest",tips:["Keep slight bend in elbows","Squeeze chest hard at the peak contraction","Don't let elbows go too far back","Controlled negative on the way back"],yt:"https://www.youtube.com/results?search_query=pec+deck+machine+form"},
+  {name:"Low to High Cable Fly",muscle:"Chest",tips:["Cables set at bottom pulley","Arc upward and inward — targets upper chest","Keep slight elbow bend throughout","Squeeze at the top"],yt:"https://www.youtube.com/results?search_query=low+to+high+cable+fly+form"},
+  {name:"Decline Bench Press",muscle:"Chest",tips:["Feet secured at top of bench","Lower the bar to lower chest","Great for targeting lower chest","Spot recommended — harder to bail"],yt:"https://www.youtube.com/results?search_query=decline+bench+press+form"},
+  {name:"Svend Press",muscle:"Chest",tips:["Hold two plates together with palms","Press out and squeeze the plates together","Incredible chest isolation","Use light weight — it's harder than it looks"],yt:"https://www.youtube.com/results?search_query=svend+press+form"},
+  // ── BACK (extra) ──
+  {name:"Meadows Row",muscle:"Back",tips:["Landmine attachment — stand perpendicular","Pull with elbow high and wide","Great for upper back thickness","Use straps if grip is limiting"],yt:"https://www.youtube.com/results?search_query=meadows+row+form"},
+  {name:"Chest Supported Row",muscle:"Back",tips:["Chest flat on incline bench — removes lower back stress","Pull elbows back and squeeze shoulder blades","Full stretch at bottom","Great for strict form"],yt:"https://www.youtube.com/results?search_query=chest+supported+row+form"},
+  {name:"Cable Pullover",muscle:"Back",tips:["Face cable machine with straight arm","Pull bar down and back in arc","Keep slight elbow bend","Feel the lat stretch at top"],yt:"https://www.youtube.com/results?search_query=cable+pullover+lat+form"},
+  {name:"Straight Arm Pulldown",muscle:"Back",tips:["Arms straight throughout","Pull bar to hips — pure lat isolation","Don't bend elbows","Great lat finisher"],yt:"https://www.youtube.com/results?search_query=straight+arm+pulldown+form"},
+  {name:"T-Bar Row",muscle:"Back",tips:["Chest pad supported or bent over","Pull to chest with elbows close","Full range of motion","Great for back thickness"],yt:"https://www.youtube.com/results?search_query=t+bar+row+form"},
+  {name:"Rack Pull",muscle:"Back",tips:["Bar set at knee height or just below","Same setup as deadlift from the knee up","Great for upper back and traps","Allows heavier loading than full deadlift"],yt:"https://www.youtube.com/results?search_query=rack+pull+form+tutorial"},
+  {name:"Inverted Row",muscle:"Back",tips:["Body in a straight line","Pull chest to bar — don't just shrug","Feet elevated = harder","Great bodyweight back exercise"],yt:"https://www.youtube.com/results?search_query=inverted+row+form"},
+  // ── SHOULDERS (extra) ──
+  {name:"Cable Lateral Raise",muscle:"Shoulders",tips:["Cable set at bottom — more constant tension than dumbbells","Raise to shoulder height","Slight forward lean","Control the descent"],yt:"https://www.youtube.com/results?search_query=cable+lateral+raise+form"},
+  {name:"Rear Delt Fly",muscle:"Shoulders",tips:["Hinge forward at hips","Arms arc out to the sides with slight elbow bend","Squeeze rear delts at top — don't just fling","Light weight, feel the muscle"],yt:"https://www.youtube.com/results?search_query=rear+delt+fly+form"},
+  {name:"Upright Row",muscle:"Shoulders",tips:["Grip shoulder width or slightly narrower","Pull bar up to chin, elbows high","Can aggravate shoulders — use wide grip or cable if needed","Slow and controlled"],yt:"https://www.youtube.com/results?search_query=upright+row+form"},
+  {name:"Shrugs",muscle:"Shoulders",tips:["Straight arms — don't roll shoulders","Squeeze traps hard at the top","Hold for a moment at top","Use straps if grip is limiting"],yt:"https://www.youtube.com/results?search_query=barbell+shrug+form"},
+  {name:"Landmine Lateral Raise",muscle:"Shoulders",tips:["Hold end of landmine bar with one hand","Arc across the body and upward","Targets front and side delt","Great for shoulder health"],yt:"https://www.youtube.com/results?search_query=landmine+lateral+raise"},
+  {name:"Machine Shoulder Press",muscle:"Shoulders",tips:["Adjust seat so handles are at ear level","Press straight up to full lockout","Controlled descent","Good for high volume finisher"],yt:"https://www.youtube.com/results?search_query=machine+shoulder+press+form"},
+  // ── ARMS (extra) ──
+  {name:"Cable Curl",muscle:"Arms",tips:["Keep elbows pinned to sides","More constant tension than dumbbells","Full range of motion","Can use straight bar, EZ bar, or rope"],yt:"https://www.youtube.com/results?search_query=cable+curl+form"},
+  {name:"Concentration Curl",muscle:"Arms",tips:["Elbow braced on inner thigh","Full supination at top — twist pinky up","Pure bicep isolation","Go slow — feel every inch"],yt:"https://www.youtube.com/results?search_query=concentration+curl+form"},
+  {name:"Incline Dumbbell Curl",muscle:"Arms",tips:["Lay back on incline bench","Arms hang straight down — full stretch","Don't swing — pure curl","Great for long head of bicep"],yt:"https://www.youtube.com/results?search_query=incline+dumbbell+curl+form"},
+  {name:"Reverse Curl",muscle:"Arms",tips:["Overhand grip (pronated)","Targets brachialis and forearms","Keep elbows stationary","Great for arm thickness"],yt:"https://www.youtube.com/results?search_query=reverse+curl+form"},
+  {name:"Wrist Curl",muscle:"Arms",tips:["Forearms rested on bench","Curl wrists up — target forearm flexors","Full range of motion","Light weight, high reps"],yt:"https://www.youtube.com/results?search_query=wrist+curl+forearm+form"},
+  {name:"Tricep Dips (Bench)",muscle:"Arms",tips:["Hands on bench behind you, feet forward","Lower until upper arms parallel to floor","Press back up to full lockout","Add weight on lap for more challenge"],yt:"https://www.youtube.com/results?search_query=bench+dip+tricep+form"},
+  {name:"Diamond Push Up",muscle:"Arms",tips:["Hands form a diamond shape under chest","Keep elbows close to body","Full range of motion","Great bodyweight tricep movement"],yt:"https://www.youtube.com/results?search_query=diamond+push+up+form"},
+  {name:"Rope Tricep Pushdown",muscle:"Arms",tips:["Flare rope out at bottom for full contraction","Keep elbows pinned","Full lockout at bottom","Great for tricep isolation"],yt:"https://www.youtube.com/results?search_query=rope+tricep+pushdown+form"},
+  // ── LEGS (extra) ──
+  {name:"Hack Squat",muscle:"Legs",tips:["Feet shoulder width on platform","Go deep — heels stay down","Very quad focused","Control the descent"],yt:"https://www.youtube.com/results?search_query=hack+squat+machine+form"},
+  {name:"Sissy Squat",muscle:"Legs",tips:["Lean back as you squat — extreme quad stretch","Hold something for balance","Very advanced — start shallow","Incredible quad finisher"],yt:"https://www.youtube.com/results?search_query=sissy+squat+form"},
+  {name:"Good Morning",muscle:"Legs",tips:["Bar on upper back like squat","Hinge at hips — keep back neutral","Feel deep hamstring stretch","Keep slight knee bend"],yt:"https://www.youtube.com/results?search_query=good+morning+exercise+form"},
+  {name:"Nordic Curl",muscle:"Legs",tips:["Kneel with feet anchored","Lower body forward as slowly as possible","Use hands to catch yourself at bottom","One of the best hamstring exercises"],yt:"https://www.youtube.com/results?search_query=nordic+hamstring+curl+form"},
+  {name:"Glute Kickback",muscle:"Legs",tips:["Cable or machine at ankle","Keep hips square — don't rotate","Full extension at top — squeeze glute","Slow and controlled"],yt:"https://www.youtube.com/results?search_query=cable+glute+kickback+form"},
+  {name:"Step Ups",muscle:"Legs",tips:["Box height should bring knee to 90 degrees","Drive through the heel of the top foot","Don't push off the back foot","Add dumbbells or barbell for load"],yt:"https://www.youtube.com/results?search_query=step+up+exercise+form"},
+  {name:"Reverse Lunge",muscle:"Legs",tips:["Step back — less knee stress than forward lunge","Front knee tracks over ankle","Keep torso upright","Great for unilateral leg strength"],yt:"https://www.youtube.com/results?search_query=reverse+lunge+form"},
+  {name:"Sumo Squat",muscle:"Legs",tips:["Wide stance, toes pointed out significantly","Keep chest tall","More inner thigh and glute focused","Can hold dumbbell or kettlebell"],yt:"https://www.youtube.com/results?search_query=sumo+squat+form"},
+  {name:"Kettlebell Swing",muscle:"Legs",tips:["Hinge — not a squat","Explosive hip snap drives the swing","Keep arms relaxed — hips do the work","Great for power and conditioning"],yt:"https://www.youtube.com/results?search_query=kettlebell+swing+form"},
+  {name:"Box Jump",muscle:"Legs",tips:["Jump and land softly with knees bent","Step down — don't jump down","Full hip extension at takeoff","Focus on landing mechanics"],yt:"https://www.youtube.com/results?search_query=box+jump+form+tutorial"},
+  {name:"Donkey Calf Raise",muscle:"Legs",tips:["Hinge forward at hips","Full range of motion — deep stretch at bottom","Targets gastrocnemius well","Can use machine or have partner sit on hips"],yt:"https://www.youtube.com/results?search_query=donkey+calf+raise+form"},
+  // ── FULL BODY (extra) ──
+  {name:"Hang Clean",muscle:"Full Body",tips:["Start from hang position (above knee)","Explosive shrug and pull under","Catch in front rack position","Great for athleticism and power"],yt:"https://www.youtube.com/results?search_query=hang+clean+form+tutorial"},
+  {name:"Push Press",muscle:"Full Body",tips:["Slight knee dip — then explosive drive","Bar momentum helps get it overhead","Full lockout at top","Heavier than strict press"],yt:"https://www.youtube.com/results?search_query=push+press+form+tutorial"},
+  {name:"Barbell Thruster",muscle:"Full Body",tips:["Front squat into overhead press in one movement","Drive from the bottom of the squat","Full overhead lockout","Brutal conditioning movement"],yt:"https://www.youtube.com/results?search_query=barbell+thruster+form"},
+  {name:"Trap Bar Deadlift",muscle:"Full Body",tips:["Stand in center of trap bar","More upright torso than conventional deadlift","Drive through heels","Great for beginners and athletes"],yt:"https://www.youtube.com/results?search_query=trap+bar+deadlift+form"},
+  {name:"Farmers Walk",muscle:"Full Body",tips:["Heavy dumbbells or farmer handles","Stand tall — don't lean","Take short controlled steps","Great for grip, traps, and conditioning"],yt:"https://www.youtube.com/results?search_query=farmers+walk+form"},
+  {name:"Bear Complex",muscle:"Full Body",tips:["Power clean → front squat → push press → back squat → push press = 1 rep","Keep bar moving — no putting it down","Incredible full body conditioning","Start light to learn the sequence"],yt:"https://www.youtube.com/results?search_query=bear+complex+barbell+form"},
+  // ── CORE (extra) ──
+  {name:"Decline Sit Up",muscle:"Core",tips:["Full range of motion","Don't use momentum — control the movement","Can add weight plate at chest","Feet secured at top of bench"],yt:"https://www.youtube.com/results?search_query=decline+sit+up+form"},
+  {name:"Pallof Press",muscle:"Core",tips:["Cable at chest height, stand perpendicular","Press out and hold — resist rotation","Core braced throughout","Great anti-rotation exercise"],yt:"https://www.youtube.com/results?search_query=pallof+press+form"},
+  {name:"Dragon Flag",muscle:"Core",tips:["Advanced — lower full body slowly","Only shoulders touch bench","Keep body rigid — no piking at hips","Start with negatives only"],yt:"https://www.youtube.com/results?search_query=dragon+flag+form"},
+  {name:"Hollow Body Hold",muscle:"Core",tips:["Lower back pressed flat to floor","Arms overhead, legs raised","Keep lower back glued to floor","Build time — start with 20 seconds"],yt:"https://www.youtube.com/results?search_query=hollow+body+hold+form"},
+  {name:"L-Sit",muscle:"Core",tips:["On parallettes or dip bars","Legs straight out, parallel to floor","Keep shoulders depressed — don't shrug","Build hold time gradually"],yt:"https://www.youtube.com/results?search_query=l+sit+form+tutorial"},
+  {name:"Copenhagen Plank",muscle:"Core",tips:["Side plank with top leg on bench","Incredible adductor and core exercise","Keep hips high and square","Can progress to dynamic version"],yt:"https://www.youtube.com/results?search_query=copenhagen+plank+form"},
+  {name:"Dead Bug",muscle:"Core",tips:["Lower back flat on floor throughout","Opposite arm and leg lower slowly","Exhale as limbs lower — brace hard","Great for core stability and spine health"],yt:"https://www.youtube.com/results?search_query=dead+bug+exercise+form"},
+  {name:"Side Plank",muscle:"Core",tips:["Body in a straight line","Don't let hips sag","Stack feet or stagger for stability","Can add hip dips for more challenge"],yt:"https://www.youtube.com/results?search_query=side+plank+form"},  // CHEST - additional
+  {name:"Pec Deck Machine",muscle:"Chest",tips:["Elbows at shoulder height","Squeeze hard at the midpoint","Control the return — don't let it snap back","Great isolation finisher"],yt:"https://www.youtube.com/results?search_query=pec+deck+machine+form"},
+  {name:"Landmine Press",muscle:"Chest",tips:["Kneeling or standing","Press at an angle — great for upper chest","One or two arms both work","Easier on shoulders than flat press"],yt:"https://www.youtube.com/results?search_query=landmine+press+form"},
+  {name:"Svend Press",muscle:"Chest",tips:["Press two plates together throughout","Squeeze chest maximally the whole way","Light weight — feel the contraction","Great finisher for inner chest"],yt:"https://www.youtube.com/results?search_query=svend+press+form"},
+  // BACK - additional
+  {name:"T-Bar Row",muscle:"Back",tips:["Straddle the bar, hinge at hips","Pull to chest — elbows close","Heavy compound movement","Keep back neutral throughout"],yt:"https://www.youtube.com/results?search_query=t+bar+row+form"},
+  {name:"Meadows Row",muscle:"Back",tips:["Staggered stance, hinge over landmine bar","Elbow flares out slightly — hits upper back","Explosive pull, controlled descent","Great for lat and upper back thickness"],yt:"https://www.youtube.com/results?search_query=meadows+row+form"},
+  {name:"Chest Supported Row",muscle:"Back",tips:["Chest on incline bench — removes lower back","Full stretch at bottom","Squeeze shoulder blades hard at top","Can use barbell or dumbbells"],yt:"https://www.youtube.com/results?search_query=chest+supported+row+form"},
+  {name:"Straight Arm Pulldown",muscle:"Back",tips:["Arms straight throughout — isolates lats","Pull bar to hips in an arc","Feel the lats stretch at top","Light weight, feel the muscle"],yt:"https://www.youtube.com/results?search_query=straight+arm+pulldown+form"},
+  {name:"Rack Pull",muscle:"Back",tips:["Bar starts at knee height","Great for upper back and trap thickness","Treat like top half of a deadlift","Can go heavier than conventional deadlift"],yt:"https://www.youtube.com/results?search_query=rack+pull+form"},
+  // SHOULDERS - additional
+  {name:"Cable Lateral Raise",muscle:"Shoulders",tips:["Cable provides constant tension","Cross body — cable at ankle height","Raise to shoulder height and hold briefly","Better tension than dumbbells at top"],yt:"https://www.youtube.com/results?search_query=cable+lateral+raise+form"},
+  {name:"Rear Delt Fly",muscle:"Shoulders",tips:["Bent over or on incline bench","Arms slightly bent throughout","Squeeze rear delts at top","Very important for shoulder balance"],yt:"https://www.youtube.com/results?search_query=rear+delt+fly+form"},
+  {name:"Upright Row",muscle:"Shoulders",tips:["Grip slightly wider than shoulder width","Pull bar to chin — elbows lead","Don't go too heavy","Can use barbell, dumbbells, or cable"],yt:"https://www.youtube.com/results?search_query=upright+row+form"},
+  {name:"Shrugs",muscle:"Shoulders",tips:["Straight up and down — no rolling","Hold at the top for a squeeze","Heavy is fine — traps can handle it","Barbell, dumbbells, or trap bar all work"],yt:"https://www.youtube.com/results?search_query=shrugs+form+tutorial"},
+  {name:"Cuban Press",muscle:"Shoulders",tips:["External rotation combined with press","Starts like upright row, rotates, then presses","Excellent rotator cuff exercise","Use light weight — complex movement"],yt:"https://www.youtube.com/results?search_query=cuban+press+form"},
+  // ARMS - additional
+  {name:"Cable Curl",muscle:"Arms",tips:["Constant tension throughout the rep","Single or both arms","Full stretch at bottom","Great for the peak contraction feel"],yt:"https://www.youtube.com/results?search_query=cable+curl+form"},
+  {name:"Concentration Curl",muscle:"Arms",tips:["Elbow braced on inner thigh","Full supination at top","Go slow — this is isolation work","Great for peak contraction"],yt:"https://www.youtube.com/results?search_query=concentration+curl+form"},
+  {name:"Spider Curl",muscle:"Arms",tips:["Chest on incline bench, arms hang straight down","Curl up — constant tension","Great for long head of bicep","Control the full descent"],yt:"https://www.youtube.com/results?search_query=spider+curl+form"},
+  {name:"Reverse Curl",muscle:"Arms",tips:["Overhand (pronated) grip","Targets brachialis and forearms","Keep elbows stationary","Goes well with regular curls"],yt:"https://www.youtube.com/results?search_query=reverse+curl+form"},
+  {name:"Wrist Curl",muscle:"Arms",tips:["Forearms on bench, wrists hang off edge","Curl wrists up — full range","Also do reverse wrist curls","Often neglected but important for grip"],yt:"https://www.youtube.com/results?search_query=wrist+curl+form"},
+  {name:"Tricep Kickback",muscle:"Arms",tips:["Hinge at hips, upper arm parallel to floor","Extend fully — squeeze at lockout","Light weight, feel the contraction","Keep upper arm completely still"],yt:"https://www.youtube.com/results?search_query=tricep+kickback+form"},
+  {name:"Diamond Push Up",muscle:"Arms",tips:["Hands form a diamond under chest","Elbows track back along ribs","Great bodyweight tricep exercise","Can elevate feet for more challenge"],yt:"https://www.youtube.com/results?search_query=diamond+push+up+form"},
+  // LEGS - additional
+  {name:"Hack Squat",muscle:"Legs",tips:["Feet forward on platform","Very quad dominant","Don't lock knees at top","Safer on lower back than barbell squat for some"],yt:"https://www.youtube.com/results?search_query=hack+squat+form"},
+  {name:"Goblet Squat",muscle:"Legs",tips:["Hold dumbbell or kettlebell at chest","Great for learning squat pattern","Elbows push knees out at bottom","Upright torso throughout"],yt:"https://www.youtube.com/results?search_query=goblet+squat+form"},
+  {name:"Step Up",muscle:"Legs",tips:["Drive through heel of lead foot","Don't push off the back foot","Knee stays over toe","Can hold dumbbells for load"],yt:"https://www.youtube.com/results?search_query=step+up+exercise+form"},
+  {name:"Glute Kickback",muscle:"Legs",tips:["Cable or machine attachment at ankle","Kick leg back and squeeze glute hard at top","Don't use momentum — control it","Lean slightly forward"],yt:"https://www.youtube.com/results?search_query=cable+glute+kickback+form"},
+  {name:"Nordic Hamstring Curl",muscle:"Legs",tips:["Kneel with ankles anchored","Lower body slowly toward floor","Catch yourself and pull back","One of the best hamstring exercises — very hard"],yt:"https://www.youtube.com/results?search_query=nordic+hamstring+curl+form"},
+  {name:"Sissy Squat",muscle:"Legs",tips:["Hold onto something for balance","Lean back as you lower — knees travel forward far","Intense quad stretch at bottom","Very advanced — go slow"],yt:"https://www.youtube.com/results?search_query=sissy+squat+form"},
+  {name:"Box Jump",muscle:"Legs",tips:["Land softly with knees bent","Step down — don't jump down","Focus on maximal effort each rep","Reset fully between reps for power"],yt:"https://www.youtube.com/results?search_query=box+jump+form+tutorial"},
+  {name:"Broad Jump",muscle:"Legs",tips:["Swing arms back then forward as you jump","Land soft — absorb with whole leg","Measure and try to beat your distance","Great for horizontal power"],yt:"https://www.youtube.com/results?search_query=broad+jump+form"},
+  {name:"Glute Ham Raise",muscle:"Legs",tips:["On GHD machine or with anchored feet","Lower under control — very hard","Use arms to help at first","One of the best posterior chain exercises"],yt:"https://www.youtube.com/results?search_query=glute+ham+raise+form"},
+  {name:"Tibialis Raise",muscle:"Legs",tips:["Stand with heels on a step or plate","Raise toes as high as possible","Great for shin strength and knee health","Often ignored but very important"],yt:"https://www.youtube.com/results?search_query=tibialis+raise+form"},
+  // FULL BODY - additional
+  {name:"Hang Clean",muscle:"Full Body",tips:["Start from hang position — bar at hips","Explosive hip drive","Catch in front rack position","Build to power clean from floor"],yt:"https://www.youtube.com/results?search_query=hang+clean+form"},
+  {name:"Clean and Jerk",muscle:"Full Body",tips:["Olympic lift — clean to shoulders first","Dip and drive to jerk overhead","Full lockout overhead","Learn from a coach if new to this"],yt:"https://www.youtube.com/results?search_query=clean+and+jerk+form"},
+  {name:"Snatch",muscle:"Full Body",tips:["Wide grip — bar goes from floor to overhead in one motion","Most technical barbell lift","Requires significant mobility","Learn with PVC pipe first"],yt:"https://www.youtube.com/results?search_query=snatch+olympic+lift+form"},
+  {name:"Kettlebell Swing",muscle:"Full Body",tips:["Hinge — not a squat","Explosive hip snap drives the bell","Arms are just a guide — hips do the work","Russian (to hip height) or American (overhead)"],yt:"https://www.youtube.com/results?search_query=kettlebell+swing+form"},
+  {name:"Farmers Carry",muscle:"Full Body",tips:["Stand tall — don't lean","Heavy dumbbells or trap bar","Walk controlled — don't rush","Great for grip, traps, and core"],yt:"https://www.youtube.com/results?search_query=farmers+carry+form"},
+  {name:"Trap Bar Deadlift",muscle:"Full Body",tips:["More upright torso than conventional","Great for beginners and athletes","Feet hip width, neutral spine","Can load heavier than conventional for most people"],yt:"https://www.youtube.com/results?search_query=trap+bar+deadlift+form"},
+  {name:"Burpee",muscle:"Full Body",tips:["Chest to floor each rep","Explosive jump at the top","Modify by stepping instead of jumping","Great conditioning finisher"],yt:"https://www.youtube.com/results?search_query=burpee+form"},
+  {name:"Thruster",muscle:"Full Body",tips:["Front squat into overhead press in one movement","Drive out of the squat into the press","Use the leg drive — don't press separately","Barbell or dumbbells both work"],yt:"https://www.youtube.com/results?search_query=thruster+exercise+form"},
+  // CORE - additional
+  {name:"Pallof Press",muscle:"Core",tips:["Cable at chest height, stand sideways","Press out and resist rotation","Core fights to stay square","Anti-rotation — great for athletic performance"],yt:"https://www.youtube.com/results?search_query=pallof+press+form"},
+  {name:"Landmine Rotation",muscle:"Core",tips:["Hold end of bar, rotate side to side","Keep arms relatively straight","Power from the core — not arms","Great for rotational athletes"],yt:"https://www.youtube.com/results?search_query=landmine+rotation+form"},
+  {name:"Weighted Sit Up",muscle:"Core",tips:["Hold plate at chest or overhead","Slow and controlled descent","Don't yank your neck","Decline bench makes it harder"],yt:"https://www.youtube.com/results?search_query=weighted+sit+up+form"},
+  {name:"Toes to Bar",muscle:"Core",tips:["Hang from bar, raise toes to touch it","Control the swing","Engage lats to stabilize","Harder than hanging leg raises"],yt:"https://www.youtube.com/results?search_query=toes+to+bar+form"},
+  {name:"Suitcase Carry",muscle:"Core",tips:["Single weight — resist lateral lean","Walk tall and controlled","Core fights to keep spine straight","Anti-lateral flexion training"],yt:"https://www.youtube.com/results?search_query=suitcase+carry+form"},
+  {name:"McGill Curl Up",muscle:"Core",tips:["One knee bent, one leg flat","Hands under lower back for support","Tiny crunch — only shoulders lift","Spine-safe core exercise"],yt:"https://www.youtube.com/results?search_query=mcgill+curl+up+form"},
 ];
 const MUSCLES=["All",...Array.from(new Set(DB.map(e=>e.muscle)))];
 
+// ── BIBLE PASSAGES ────────────────────────────────────────────────────────────
+const BIBLE=[
+  {verse:"I can do all things through Christ who strengthens me.",ref:"Philippians 4:13"},
+  {verse:"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.",ref:"Joshua 1:9"},
+  {verse:"Do you not know that your bodies are temples of the Holy Spirit? Honor God with your bodies.",ref:"1 Corinthians 6:19-20"},
+  {verse:"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary.",ref:"Isaiah 40:31"},
+  {verse:"For God has not given us a spirit of fear, but of power and of love and of a sound mind.",ref:"2 Timothy 1:7"},
+  {verse:"The Lord is my strength and my shield; my heart trusts in him, and he helps me.",ref:"Psalm 28:7"},
+  {verse:"Whatever you do, work at it with all your heart, as working for the Lord, not for human masters.",ref:"Colossians 3:23"},
+  {verse:"No discipline seems pleasant at the time, but painful. Later on, however, it produces a harvest of righteousness.",ref:"Hebrews 12:11"},
+  {verse:"The Lord will fight for you; you need only to be still.",ref:"Exodus 14:14"},
+  {verse:"Be watchful, stand firm in the faith, act like men, be strong.",ref:"1 Corinthians 16:13"},
+  {verse:"Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.",ref:"Galatians 6:9"},
+  {verse:"Trust in the Lord with all your heart and lean not on your own understanding.",ref:"Proverbs 3:5"},
+  {verse:"The Lord is my rock, my fortress and my deliverer; my God is my rock, in whom I take refuge.",ref:"Psalm 18:2"},
+  {verse:"Come to me, all you who are weary and burdened, and I will give you rest.",ref:"Matthew 11:28"},
+  {verse:"Do not be overcome by evil, but overcome evil with good.",ref:"Romans 12:21"},
+  {verse:"And we know that in all things God works for the good of those who love him.",ref:"Romans 8:28"},
+  {verse:"Be strong in the Lord and in his mighty power.",ref:"Ephesians 6:10"},
+  {verse:"I press on toward the goal to win the prize for which God has called me.",ref:"Philippians 3:14"},
+  {verse:"The Lord your God is with you, the Mighty Warrior who saves.",ref:"Zephaniah 3:17"},
+  {verse:"God is our refuge and strength, an ever-present help in trouble.",ref:"Psalm 46:1"},
+  {verse:"My grace is sufficient for you, for my power is made perfect in weakness.",ref:"2 Corinthians 12:9"},
+  {verse:"Run in such a way as to get the prize. Everyone who competes in the games goes into strict training.",ref:"1 Corinthians 9:24-25"},
+  {verse:"You were bought at a price. Therefore honor God with your bodies.",ref:"1 Corinthians 6:20"},
+  {verse:"Train yourself to be godly. Physical training is of some value, but godliness has value for all things.",ref:"1 Timothy 4:7-8"},
+  {verse:"The Lord gives strength to his people; the Lord blesses his people with peace.",ref:"Psalm 29:11"},
+  {verse:"Wait for the Lord; be strong and take heart and wait for the Lord.",ref:"Psalm 27:14"},
+  {verse:"Even youths grow tired and weary, and young men stumble and fall; but those who hope in the Lord will renew their strength.",ref:"Isaiah 40:30-31"},
+  {verse:"For we are God's handiwork, created in Christ Jesus to do good works.",ref:"Ephesians 2:10"},
+  {verse:"The righteous person may have many troubles, but the Lord delivers him from them all.",ref:"Psalm 34:19"},
+  {verse:"He gives power to the faint, and to him who has no might he increases strength.",ref:"Isaiah 40:29"},
+  {verse:"I have fought the good fight, I have finished the race, I have kept the faith.",ref:"2 Timothy 4:7"},
+  {verse:"Therefore, since we are surrounded by such a great cloud of witnesses, let us run with perseverance the race marked out for us.",ref:"Hebrews 12:1"},
+  {verse:"The Lord is my shepherd; I shall not want.",ref:"Psalm 23:1"},
+  {verse:"Be still, and know that I am God.",ref:"Psalm 46:10"},
+  {verse:"With man this is impossible, but with God all things are possible.",ref:"Matthew 19:26"},
+];
+
 // ── DEFAULT PROGRAM ───────────────────────────────────────────────────────────
+const BOX_JUMP_EX={name:"Seated Box Jumps",sets:3,reps:"5",note:"Pure RFD — max effort every rep, full reset between reps"};
 const DEFAULT_PROGRAM=[
   {day:"MON",name:"Upper A",color:"#FF6B2C",exercises:[
     {name:"Bench Press",sets:4,reps:"5",note:"Main lift — 2 min rest"},
@@ -264,6 +434,7 @@ const DEFAULT_PROGRAM=[
     {name:"Incline Dumbbell Press",sets:3,reps:"10",note:"60–90 sec rest"},
     {name:"Dumbbell Curls",sets:3,reps:"10",note:"Superset — no rest between ↓",superset:true},
     {name:"Tricep Pushdowns",sets:3,reps:"12",note:"Superset — 60–90 sec after pair",superset:true},
+    {...BOX_JUMP_EX},
   ]},
   {day:"TUE",name:"Lower A",color:"#3B82F6",exercises:[
     {name:"Back Squat",sets:4,reps:"5",note:"Main lift — 2 min rest"},
@@ -272,6 +443,7 @@ const DEFAULT_PROGRAM=[
     {name:"Leg Curl",sets:3,reps:"12",note:"60–90 sec rest"},
     {name:"Calf Raises",sets:3,reps:"15",note:"60–90 sec rest"},
     {name:"Hanging Leg Raises",sets:3,reps:"12",note:"60–90 sec rest"},
+    {...BOX_JUMP_EX},
   ]},
   {day:"THU",name:"Upper B",color:"#A855F7",exercises:[
     {name:"Incline Bench Press",sets:4,reps:"8",note:"Main lift — 2 min rest"},
@@ -281,6 +453,7 @@ const DEFAULT_PROGRAM=[
     {name:"Lateral Raise",sets:3,reps:"15",note:"Superset — no rest between ↓",superset:true},
     {name:"Hammer Curls",sets:3,reps:"12",note:"Superset — 60–90 sec after pair",superset:true},
     {name:"Skull Crushers",sets:3,reps:"12",note:"60–90 sec rest"},
+    {...BOX_JUMP_EX},
   ]},
   {day:"FRI",name:"Lower B",color:"#22C55E",exercises:[
     {name:"Deadlift",sets:3,reps:"5",note:"Main lift — 2 min rest"},
@@ -289,11 +462,12 @@ const DEFAULT_PROGRAM=[
     {name:"Hip Thrust",sets:3,reps:"10",note:"60–90 sec rest"},
     {name:"Seated Calf Raises",sets:3,reps:"15",note:"Superset — no rest between ↓",superset:true},
     {name:"Plank",sets:3,reps:"hold",note:"Superset — 60–90 sec after pair",superset:true},
+    {...BOX_JUMP_EX},
   ]},
 ];
 
 // ── STATE ─────────────────────────────────────────────────────────────────────
-const SK="forge_workouts", PK="forge_program";
+const SK="forge_workouts",PK="forge_program",DK="forge_draft";
 let workouts=[];
 try{workouts=JSON.parse(localStorage.getItem(SK)||"[]");}catch{}
 function loadProgram(){try{const s=localStorage.getItem(PK);return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_PROGRAM));}catch{return JSON.parse(JSON.stringify(DEFAULT_PROGRAM));}}
@@ -302,89 +476,102 @@ let PROGRAM=loadProgram();
 let activeWorkout=null,selectedWorkout=null,selectedWorkoutIdx=null,selectedDayIdx=null;
 let editMode=false,programEditMode=false,activeMuscle="All",pickerContext="log";
 let selectedProgressEx=null;
+let defaultTimerSecs=90;
 
-// ── TIMER STATE ───────────────────────────────────────────────────────────────
-let timerInterval=null,timerTotal=0,timerLeft=0;
+// ── TIMER ─────────────────────────────────────────────────────────────────────
+let timerInterval=null,timerTotal=0,timerLeft=0,timerEndTime=null;
 
 function startTimer(seconds){
   clearInterval(timerInterval);
   timerTotal=seconds; timerLeft=seconds;
-  const bar=document.getElementById("timer-bar");
-  const count=document.getElementById("timer-count");
-  const prog=document.getElementById("timer-progress");
-  bar.classList.remove("hidden");
-  function tick(){
-    const m=Math.floor(timerLeft/60),s=timerLeft%60;
-    count.textContent=m+":"+(s<10?"0"+s:s);
-    prog.style.width=((timerLeft/timerTotal)*100)+"%";
+  timerEndTime=Date.now()+(seconds*1000);
+  document.getElementById("timer-bar").classList.remove("hidden");
+  updateTimerDisplay();
+  timerInterval=setInterval(()=>{
+    timerLeft=Math.max(0,Math.round((timerEndTime-Date.now())/1000));
+    updateTimerDisplay();
     if(timerLeft<=0){
       clearInterval(timerInterval);
-      count.textContent="GO!";
-      prog.style.width="0%";
-      try{const a=new AudioContext();const o=a.createOscillator();const g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=880;g.gain.setValueAtTime(0.3,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+0.5);o.start();o.stop(a.currentTime+0.5);}catch{}
-      document.getElementById("screen-log").classList.add("timer-done");
-      setTimeout(()=>{document.getElementById("screen-log").classList.remove("timer-done");bar.classList.add("hidden");},1500);
-    } else { timerLeft--; }
-  }
-  tick();
-  timerInterval=setInterval(tick,1000);
+      document.getElementById("timer-count").textContent="GO!";
+      document.getElementById("timer-progress").style.width="0%";
+      playTimerDone();
+      const scr=document.getElementById("screen-log");
+      if(scr)scr.classList.add("timer-done");
+      setTimeout(()=>{
+        if(scr)scr.classList.remove("timer-done");
+        document.getElementById("timer-bar").classList.add("hidden");
+      },2000);
+    }
+  },250);
+}
+
+function updateTimerDisplay(){
+  const m=Math.floor(timerLeft/60),s=timerLeft%60;
+  document.getElementById("timer-count").textContent=m+":"+(s<10?"0"+s:s);
+  document.getElementById("timer-progress").style.width=((timerLeft/timerTotal)*100)+"%";
+}
+
+function adjustTimer(delta){
+  if(!timerEndTime) return;
+  timerEndTime+=delta*1000;
+  timerTotal=Math.max(5,timerTotal+delta);
+  timerLeft=Math.max(0,Math.round((timerEndTime-Date.now())/1000));
+  updateTimerDisplay();
 }
 
 function skipTimer(){
   clearInterval(timerInterval);
+  timerInterval=null; timerEndTime=null;
   document.getElementById("timer-bar").classList.add("hidden");
 }
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 function save(){try{localStorage.setItem(SK,JSON.stringify(workouts));}catch{}}
+function saveDraft(){if(activeWorkout)try{localStorage.setItem(DK,JSON.stringify(activeWorkout));}catch{}}
+function loadDraft(){try{const d=localStorage.getItem(DK);return d?JSON.parse(d):null;}catch{return null;}}
+function clearDraft(){try{localStorage.removeItem(DK);}catch{}}
 function fmtDate(iso){return new Date(iso).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});}
 function totalVol(w){return w.exercises.reduce((s,ex)=>s+ex.sets.reduce((s2,set)=>s2+(parseFloat(set.reps)||0)*(parseFloat(set.weight)||0),0),0);}
 function dbLookup(name){return DB.find(e=>e.name===name)||null;}
+function getLastSession(exName){for(let w of workouts){const ex=w.exercises.find(e=>e.name===exName);if(ex)return{date:w.date,sets:ex.sets};}return null;}
+function getExerciseHistory(exName){const h=[];for(let w of workouts){const ex=w.exercises.find(e=>e.name===exName);if(ex)h.push({date:w.date,sets:ex.sets});}return h;}
+function getBestSet(exName){let best={weight:0,reps:0};for(let w of workouts){const ex=w.exercises.find(e=>e.name===exName);if(ex)for(let s of ex.sets){if((parseFloat(s.weight)||0)>best.weight)best={weight:parseFloat(s.weight)||0,reps:parseFloat(s.reps)||0};}}return best.weight>0?best:null;}
+function getAllLoggedExercises(){const n=new Set();for(let w of workouts)for(let ex of w.exercises)n.add(ex.name);return Array.from(n).sort();}
 
-// Get last workout that contained this exercise
-function getLastSession(exName){
-  for(let w of workouts){
-    const ex=w.exercises.find(e=>e.name===exName);
-    if(ex) return ex.sets;
-  }
-  return null;
+// Check if two exercises are in a superset pair together (adjacent superset:true)
+function getSupersetGroupId(exercises, idx){
+  if(!exercises[idx].superset) return null;
+  // walk back to start of superset block
+  let start=idx;
+  while(start>0&&exercises[start-1].superset) start--;
+  return start;
 }
 
-// Get all history for a given exercise name
-function getExerciseHistory(exName){
-  const history=[];
-  for(let w of workouts){
-    const ex=w.exercises.find(e=>e.name===exName);
-    if(ex) history.push({date:w.date,sets:ex.sets});
+function allSupersetPartnersLogged(exercises, setIdx, exIdx){
+  // Find the superset group this exercise belongs to
+  const groupStart=getSupersetGroupId(exercises,exIdx);
+  if(groupStart===null) return true;
+  // Find all exercises in this group
+  let i=groupStart;
+  while(i<exercises.length&&exercises[i].superset){
+    const ex=exercises[i];
+    if(setIdx<ex.sets.length&&!ex.sets[setIdx].logged) return false;
+    i++;
   }
-  return history;
-}
-
-// Get best set (highest weight) for an exercise
-function getBestSet(exName){
-  let best={weight:0,reps:0};
-  for(let w of workouts){
-    const ex=w.exercises.find(e=>e.name===exName);
-    if(ex) for(let s of ex.sets){
-      if((parseFloat(s.weight)||0)>(best.weight||0)) best={weight:parseFloat(s.weight)||0,reps:parseFloat(s.reps)||0};
-    }
-  }
-  return best.weight>0?best:null;
-}
-
-// Get all exercises ever logged
-function getAllLoggedExercises(){
-  const names=new Set();
-  for(let w of workouts) for(let ex of w.exercises) names.add(ex.name);
-  return Array.from(names).sort();
+  return true;
 }
 
 // ── NAV ───────────────────────────────────────────────────────────────────────
 function goTo(view){
+  if(view!=="log") saveDraft();
   ["home","program","program-day","log","history","detail","progress","progress-ex"].forEach(v=>
     document.getElementById("screen-"+v).classList.add("hidden"));
   document.getElementById("screen-"+view).classList.remove("hidden");
   document.getElementById("nav").classList.toggle("hidden",view==="log");
+  if(view!=="log"){
+    document.getElementById("timer-bar").classList.add("hidden");
+    clearInterval(timerInterval);
+  }
   ["home","program","progress","history"].forEach(id=>{
     document.getElementById("nl-"+id).classList.toggle("active",
       id===view||(view==="program-day"&&id==="program")||(view==="detail"&&id==="history")||(view==="progress-ex"&&id==="progress"));
@@ -398,6 +585,15 @@ function goTo(view){
 // ── HOME ──────────────────────────────────────────────────────────────────────
 function renderHome(){
   const s=document.getElementById("screen-home");
+  const draft=loadDraft();
+  let draftHTML="";
+  if(draft){
+    const exNames=draft.exercises.map(e=>e.name).join(" · ");
+    draftHTML=`<div class="draft-banner">
+      <div><div class="draft-banner-text">⚡ Workout in progress</div><div style="font-size:11px;color:#4ade8088;margin-top:2px;">${fmtDate(draft.date)} · ${draft.exercises.length} exercise${draft.exercises.length!==1?"s":""}</div></div>
+      <button class="draft-resume-btn" onclick="resumeDraft()">Resume</button>
+    </div>`;
+  }
   let r=workouts.length===0
     ?`<div class="empty-msg">No workouts yet.<br>Get after it.</div>`
     :workouts.slice(0,3).map((w,i)=>`
@@ -409,8 +605,17 @@ function renderHome(){
   if(workouts.length>3) r+=`<button class="ghost-btn" onclick="goTo('history')">View All (${workouts.length})</button>`;
   s.innerHTML=`
     <div class="home-header"><div class="logo">FORGE</div><div class="logo-sub">Weight Tracker</div></div>
+    ${draftHTML}
     <button class="big-btn" onclick="startWorkout(null)"><span class="big-btn-plus">+</span><span>Start Workout</span></button>
     <div class="section-label">Recent</div>${r}`;
+}
+
+function resumeDraft(){
+  const draft=loadDraft();
+  if(!draft) return;
+  activeWorkout=draft;
+  renderLog();
+  goTo("log");
 }
 
 // ── PROGRAM ───────────────────────────────────────────────────────────────────
@@ -439,7 +644,7 @@ function renderProgram(){
       <div class="progression-divider">
         <div class="progression-row"><span class="progression-label">Main lifts rest</span><span class="progression-val">2 min</span></div>
         <div class="progression-row"><span class="progression-label">Accessories rest</span><span class="progression-val">60–90 sec</span></div>
-        <div class="progression-row"><span class="progression-label">Supersets rest</span><span class="progression-val">Little/none</span></div>
+        <div class="progression-row"><span class="progression-label">Supersets rest</span><span class="progression-val">After both lifts</span></div>
       </div>
     </div>`;
 }
@@ -479,7 +684,7 @@ function renderProgramDay(){
     const exHTML=day.exercises.map((ex,idx)=>`
       <div class="prog-edit-card" style="border-left:3px solid ${day.color}">
         <div style="flex:1">
-          <div style="font-size:16px;font-weight:800;margin-bottom:6px;">${ex.name}</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:6px;">${ex.name}</div>
           <div style="display:flex;align-items:center;gap:6px;">
             <input class="prog-sets-input" type="number" value="${ex.sets}" min="1" max="10" oninput="updateProgEx(${idx},'sets',this.value)"/>
             <span style="color:#888;font-size:13px;">sets ×</span>
@@ -511,10 +716,12 @@ function resetProgramDay(){if(!confirm("Reset to original?"))return;PROGRAM[sele
 
 // ── LOG ───────────────────────────────────────────────────────────────────────
 function startWorkout(prefill){
+  clearDraft();
   const exercises=prefill
     ?prefill.map(ex=>({name:ex.name,sets:Array.from({length:ex.sets},()=>({reps:"",weight:"",logged:false})),note:ex.note||"",superset:!!ex.superset}))
     :[];
   activeWorkout={id:Date.now(),date:new Date().toISOString(),exercises};
+  saveDraft();
   renderLog();goTo("log");
 }
 
@@ -522,7 +729,24 @@ function renderLog(){
   const s=document.getElementById("screen-log");
   const exHTML=activeWorkout.exercises.map((ex,ei)=>{
     const last=getLastSession(ex.name);
-    const lastHTML=last?`<div class="last-ref"><div class="last-ref-title">LAST SESSION</div><div class="last-ref-row">${last.map((s,i)=>`<span class="last-ref-set">S${i+1}: ${s.weight||"—"}lbs × ${s.reps||"—"}</span>`).join("")}</div></div>`:"";
+    const hist=getExerciseHistory(ex.name).slice(0,4);
+
+    // Last session reference
+    const lastHTML=last?`<div class="last-ref">
+      <div class="last-ref-title">LAST SESSION — ${fmtDate(last.date)}</div>
+      <div class="last-ref-row">${last.sets.map((s,i)=>`<span class="last-ref-set">S${i+1}: ${s.weight||"—"}lbs×${s.reps||"—"}</span>`).join("")}</div>
+    </div>`:"";
+
+    // In-workout history (last 4 sessions)
+    const histHTML=hist.length>0?`<div class="inwork-hist">
+      <div class="inwork-hist-title">WEIGHT HISTORY</div>
+      ${hist.map(h=>{
+        const best=h.sets.reduce((b,set)=>(parseFloat(set.weight)||0)>(b.w||0)?{w:parseFloat(set.weight)||0,r:parseFloat(set.reps)||0}:b,{w:0,r:0});
+        return `<div class="inwork-hist-row"><span class="inwork-hist-date">${fmtDate(h.date)}</span><span class="inwork-hist-val">${h.sets.map((s,i)=>`${s.weight||"—"}×${s.reps||"—"}`).join("  ")}</span></div>`;
+      }).join("")}
+    </div>`:"";
+
+    const allLogged=ex.sets.every(s=>s.logged);
     return `
     <div class="ex-card${ex.superset?" superset":""}">
       ${ex.superset?'<div class="superset-tag">⚡ SUPERSET</div>':""}
@@ -534,7 +758,7 @@ function renderLog(){
         </div>
       </div>
       ${ex.note?`<div class="ex-note-small">${ex.note}</div>`:""}
-      ${lastHTML}
+      ${lastHTML}${histHTML}
       <div class="set-grid">
         <div class="set-col-label">#</div>
         <div class="set-col-label">lbs</div>
@@ -551,11 +775,12 @@ function renderLog(){
       <button class="add-set-btn" onclick="addLogSet(${ei})">+ Add Set</button>
     </div>`;
   }).join("");
+
   s.innerHTML=`
-    <div class="log-header" style="padding-top:${timerInterval?72:56}px">
-      <button class="back-btn" onclick="cancelWorkout()">✕</button>
+    <div class="log-header">
+      <button class="back-btn" onclick="leaveWorkout()">✕</button>
       <div class="log-title">Today's Workout</div>
-      <button class="done-btn" onclick="finishWorkout()">Done</button>
+      <button class="done-btn" onclick="finishWorkout()">Finish</button>
     </div>
     <div class="log-date">${fmtDate(activeWorkout.date)}</div>
     ${exHTML}
@@ -565,21 +790,37 @@ function renderLog(){
 function logSet(ei,si){
   const set=activeWorkout.exercises[ei].sets[si];
   set.logged=!set.logged;
+  saveDraft();
   renderLog();
   if(set.logged){
-    startTimer(90);
     showBible();
+    // Only start timer for non-superset, or if ALL partners in the superset pair are done
+    const ex=activeWorkout.exercises[ei];
+    if(!ex.superset){
+      startTimer(defaultTimerSecs);
+    } else {
+      if(allSupersetPartnersLogged(activeWorkout.exercises,si,ei)){
+        startTimer(defaultTimerSecs);
+      }
+    }
   }
 }
 
-function addLogSet(ei){activeWorkout.exercises[ei].sets.push({reps:"",weight:"",logged:false});renderLog();}
-function removeLogSet(ei,si){if(activeWorkout.exercises[ei].sets.length>1){activeWorkout.exercises[ei].sets.splice(si,1);renderLog();}}
-function updateLogSet(ei,si,field,val){activeWorkout.exercises[ei].sets[si][field]=val;}
-function removeExFromLog(ei){activeWorkout.exercises.splice(ei,1);renderLog();}
-function cancelWorkout(){skipTimer();activeWorkout=null;goTo("home");}
+function addLogSet(ei){activeWorkout.exercises[ei].sets.push({reps:"",weight:"",logged:false});saveDraft();renderLog();}
+function removeLogSet(ei,si){if(activeWorkout.exercises[ei].sets.length>1){activeWorkout.exercises[ei].sets.splice(si,1);saveDraft();renderLog();}}
+function updateLogSet(ei,si,field,val){activeWorkout.exercises[ei].sets[si][field]=val;saveDraft();}
+function removeExFromLog(ei){activeWorkout.exercises.splice(ei,1);saveDraft();renderLog();}
+
+function leaveWorkout(){
+  // Save draft and go home — don't discard
+  saveDraft();
+  skipTimer();
+  goTo("home");
+}
+
 function finishWorkout(){
-  if(!activeWorkout.exercises.length){skipTimer();goTo("home");return;}
-  skipTimer();workouts.unshift(activeWorkout);save();activeWorkout=null;goTo("home");
+  if(!activeWorkout.exercises.length){clearDraft();skipTimer();goTo("home");return;}
+  skipTimer();workouts.unshift(activeWorkout);save();clearDraft();activeWorkout=null;goTo("home");
 }
 
 // ── PROGRESS ─────────────────────────────────────────────────────────────────
@@ -587,9 +828,7 @@ function renderProgress(){
   const s=document.getElementById("screen-progress");
   const logged=getAllLoggedExercises();
   if(logged.length===0){
-    s.innerHTML=`
-      <div class="log-header"><div style="width:40px"></div><div class="log-title">Progress</div><div style="width:40px"></div></div>
-      <div class="empty-msg">Log some workouts first<br>to see your progress.</div>`;
+    s.innerHTML=`<div class="log-header"><div style="width:40px"></div><div class="log-title">Progress</div><div style="width:40px"></div></div><div class="empty-msg">Log some workouts first<br>to see your progress.</div>`;
     return;
   }
   const cards=logged.map(name=>{
@@ -597,71 +836,51 @@ function renderProgress(){
     const hist=getExerciseHistory(name);
     return `<div class="progress-ex-card" onclick="openProgressEx('${name.replace(/'/g,"\\'")}')">
       <div class="progress-ex-name">${name}</div>
-      <div class="progress-ex-best">
-        ${best?`Best: <span>${best.weight} lbs × ${best.reps} reps</span> · `:""}
-        <span>${hist.length}</span> session${hist.length!==1?"s":""}
-      </div>
+      <div class="progress-ex-best">${best?`Best: <span>${best.weight} lbs × ${best.reps} reps</span> · `:""}
+      <span>${hist.length}</span> session${hist.length!==1?"s":""}</div>
     </div>`;
   }).join("");
-  s.innerHTML=`
-    <div class="log-header"><div style="width:40px"></div><div class="log-title">Progress</div><div style="width:40px"></div></div>
-    ${cards}`;
+  s.innerHTML=`<div class="log-header"><div style="width:40px"></div><div class="log-title">Progress</div><div style="width:40px"></div></div>${cards}`;
 }
 
-function openProgressEx(name){
-  selectedProgressEx=name;
-  renderProgressEx();
-  goTo("progress-ex");
-}
+function openProgressEx(name){selectedProgressEx=name;renderProgressEx();goTo("progress-ex");}
 
 function renderProgressEx(){
   const s=document.getElementById("screen-progress-ex");
   const name=selectedProgressEx;
   const history=getExerciseHistory(name);
   const best=getBestSet(name);
-  if(history.length===0){s.innerHTML="";return;}
-
-  // Build simple volume chart data
   const recent=history.slice(0,8).reverse();
-  const maxVol=Math.max(...recent.map(h=>h.sets.reduce((s,set)=>(parseFloat(set.weight)||0)*(parseFloat(set.reps)||0)+s,0)));
-
+  const maxVol=Math.max(...recent.map(h=>h.sets.reduce((s,set)=>(parseFloat(set.weight)||0)*(parseFloat(set.reps)||0)+s,0)),1);
   const chartBars=recent.map(h=>{
     const vol=h.sets.reduce((s,set)=>(parseFloat(set.weight)||0)*(parseFloat(set.reps)||0)+s,0);
-    const pct=maxVol>0?Math.round((vol/maxVol)*100):0;
+    const pct=Math.round((vol/maxVol)*100);
     const d=new Date(h.date);
-    const label=(d.getMonth()+1)+"/"+(d.getDate());
     return `<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
-      <div style="font-size:10px;color:#888;">${vol>0?vol.toLocaleString():""}</div>
+      <div style="font-size:9px;color:#888;">${vol>0?vol.toLocaleString():""}</div>
       <div style="width:100%;background:#222228;border-radius:4px;height:80px;display:flex;align-items:flex-end;overflow:hidden;">
-        <div style="width:100%;background:#FF6B2C;border-radius:4px 4px 0 0;height:${pct}%;transition:height 0.3s;"></div>
+        <div style="width:100%;background:#FF6B2C;border-radius:4px 4px 0 0;height:${pct}%;"></div>
       </div>
-      <div style="font-size:10px;color:#888;">${label}</div>
+      <div style="font-size:9px;color:#888;">${(d.getMonth()+1)+"/"+(d.getDate())}</div>
     </div>`;
   }).join("");
-
   const histRows=history.map(h=>{
-    const best=h.sets.reduce((b,set)=>(parseFloat(set.weight)||0)>(b.w||0)?{w:parseFloat(set.weight)||0,r:parseFloat(set.reps)||0}:b,{});
     const setStr=h.sets.map((set,i)=>`S${i+1}: ${set.weight||"—"}×${set.reps||"—"}`).join("  ");
+    const bst=h.sets.reduce((b,set)=>(parseFloat(set.weight)||0)>(b.w||0)?{w:parseFloat(set.weight)||0,r:parseFloat(set.reps)||0}:b,{w:0,r:0});
     return `<div class="progress-history-row">
-      <div>
-        <div class="progress-history-date">${fmtDate(h.date)}</div>
-        <div style="font-size:11px;color:#666;margin-top:2px;">${setStr}</div>
-      </div>
-      <div class="progress-history-sets">${best.w?best.w+" lbs":""}</div>
+      <div><div class="progress-history-date">${fmtDate(h.date)}</div><div style="font-size:11px;color:#666;margin-top:2px;">${setStr}</div></div>
+      <div class="progress-history-sets">${bst.w?bst.w+" lbs":""}</div>
     </div>`;
   }).join("");
-
   s.innerHTML=`
     <div class="log-header">
       <button class="back-btn" onclick="goTo('progress')">←</button>
-      <div class="log-title">${name}</div>
-      <div style="width:40px"></div>
+      <div class="log-title">${name}</div><div style="width:40px"></div>
     </div>
     ${best?`<div class="vol-big">${best.weight}<span class="vol-unit"> lbs</span></div><div class="vol-label">Personal Best × ${best.reps} reps</div>`:""}
-    <div style="font-size:13px;font-weight:700;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Volume Per Session</div>
+    <div style="font-size:12px;font-weight:700;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Volume Per Session</div>
     <div style="display:flex;gap:4px;align-items:flex-end;margin-bottom:24px;padding:0 4px;">${chartBars}</div>
-    <div class="section-label">All Sessions</div>
-    ${histRows}`;
+    <div class="section-label">All Sessions</div>${histRows}`;
 }
 
 // ── HISTORY ───────────────────────────────────────────────────────────────────
@@ -675,11 +894,7 @@ function renderHistory(){
         <div class="summary-exlist">${w.exercises.map(e=>e.name).join(" · ")}</div>
         <div class="summary-vol">${totalVol(w).toLocaleString()} lbs total volume</div>
       </div>`).join("");
-  s.innerHTML=`
-    <div class="log-header">
-      <button class="back-btn" onclick="goTo('home')">←</button>
-      <div class="log-title">History</div><div style="width:48px"></div>
-    </div>${list}`;
+  s.innerHTML=`<div class="log-header"><button class="back-btn" onclick="goTo('home')">←</button><div class="log-title">History</div><div style="width:48px"></div></div>${list}`;
 }
 
 // ── DETAIL / EDIT ─────────────────────────────────────────────────────────────
@@ -716,18 +931,16 @@ function renderDetail(){
     const exHTML=w.exercises.map((ex,ei)=>`
       <div class="ex-card">
         <div class="ex-card-header">
-          <div class="ex-name" style="font-size:15px">${ex.name}</div>
-          <button class="remove-ex-btn" onclick="removeExFromSaved(${ei})" style="color:#ff4444;font-size:13px;font-weight:700;">✕ Remove</button>
+          <div class="ex-name" style="font-size:14px">${ex.name}</div>
+          <button class="remove-ex-btn" onclick="removeExFromSaved(${ei})" style="color:#ff4444;font-size:12px;font-weight:700;">✕ Remove</button>
         </div>
-        <div class="set-grid">
-          <div class="set-col-label">#</div><div class="set-col-label">lbs</div><div class="set-col-label">Reps</div><div></div>
-        </div>
+        <div class="set-grid"><div class="set-col-label">#</div><div class="set-col-label">lbs</div><div class="set-col-label">Reps</div><div></div></div>
         ${ex.sets.map((set,si)=>`
           <div class="set-grid">
             <div class="set-num">${si+1}</div>
             <input class="edit-set-input" type="number" inputmode="decimal" placeholder="0" value="${set.weight}" oninput="updateSavedSet(${ei},${si},'weight',this.value)"/>
             <input class="edit-set-input" type="number" inputmode="numeric" placeholder="0" value="${set.reps}" oninput="updateSavedSet(${ei},${si},'reps',this.value)"/>
-            <button class="remove-set-btn" onclick="removeSavedSet(${ei},${si})">−</button>
+            <button class="remove-set-btn" onclick="removeSavedSet(${ei},${si})" style="background:transparent;border:none;color:#888;font-size:18px;cursor:pointer;">−</button>
           </div>`).join("")}
         <button class="add-set-btn" onclick="addSavedSet(${ei})">+ Add Set</button>
       </div>`).join("");
@@ -760,8 +973,7 @@ function showExPicker(context){
   search.value="";
   search.oninput=e=>renderExList(e.target.value,activeMuscle);
   document.getElementById("modal-ex").onclick=e=>{if(e.target===document.getElementById("modal-ex"))hideExPicker();};
-  renderExList("","All");
-  search.focus();
+  renderExList("","All");search.focus();
 }
 function filterMuscle(m){
   activeMuscle=m;
@@ -771,8 +983,7 @@ function filterMuscle(m){
 function renderExList(q,muscle){
   const filtered=DB.filter(e=>e.name.toLowerCase().includes(q.toLowerCase())&&(muscle==="All"||e.muscle===muscle));
   document.getElementById("ex-list").innerHTML=filtered.length
-    ?filtered.map(e=>`
-      <div class="ex-item" onclick="addExerciseFromPicker('${e.name.replace(/'/g,"\\'")}')">
+    ?filtered.map(e=>`<div class="ex-item" onclick="addExerciseFromPicker('${e.name.replace(/'/g,"\\'")}')">
         <span style="flex:1">${e.name}</span>
         <span class="ex-muscle-tag">${e.muscle}</span>
         <button class="ex-info-btn" style="margin-left:4px" onclick="event.stopPropagation();showInfo('${e.name.replace(/'/g,"\\'")}',true)">ℹ️</button>
@@ -781,7 +992,7 @@ function renderExList(q,muscle){
 }
 function hideExPicker(){document.getElementById("modal-ex").classList.add("hidden");}
 function addExerciseFromPicker(name){
-  if(pickerContext==="log"){activeWorkout.exercises.push({name,sets:[{reps:"",weight:"",logged:false}],note:"",superset:false});hideExPicker();renderLog();}
+  if(pickerContext==="log"){activeWorkout.exercises.push({name,sets:[{reps:"",weight:"",logged:false}],note:"",superset:false});saveDraft();hideExPicker();renderLog();}
   else if(pickerContext==="edit"){selectedWorkout.exercises.push({name,sets:[{reps:"",weight:""}],note:"",superset:false});hideExPicker();renderDetail();}
   else if(pickerContext==="program"){PROGRAM[selectedDayIdx].exercises.push({name,sets:3,reps:"10",note:"",superset:false});saveProgram();hideExPicker();renderProgramDay();}
 }
@@ -799,56 +1010,62 @@ function showInfo(name,fromPicker){
     <div class="info-section-title">Form Tips</div>
     <ul class="info-tips">${ex.tips.map(t=>`<li>${t}</li>`).join("")}</ul>
     <a href="${ex.yt}" target="_blank" style="text-decoration:none">
-      <button class="yt-btn"><span style="font-size:22px">▶️</span>Watch Tutorial on YouTube</button>
+      <button class="yt-btn"><span style="font-size:20px">▶️</span>Watch Tutorial on YouTube</button>
     </a>${addBtn}`;
   document.getElementById("modal-info").classList.remove("hidden");
   document.getElementById("modal-info").onclick=e=>{if(e.target===document.getElementById("modal-info"))hideInfo();};
 }
 function hideInfo(){document.getElementById("modal-info").classList.add("hidden");}
 
-
-// ── BIBLE PASSAGES ────────────────────────────────────────────────────────────
-const BIBLE = [
-  {verse:"I can do all things through Christ who strengthens me.",ref:"Philippians 4:13"},
-  {verse:"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.",ref:"Joshua 1:9"},
-  {verse:"Do you not know that your bodies are temples of the Holy Spirit? Honor God with your bodies.",ref:"1 Corinthians 6:19-20"},
-  {verse:"But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary.",ref:"Isaiah 40:31"},
-  {verse:"For God has not given us a spirit of fear, but of power and of love and of a sound mind.",ref:"2 Timothy 1:7"},
-  {verse:"The Lord is my strength and my shield; my heart trusts in him, and he helps me.",ref:"Psalm 28:7"},
-  {verse:"Have I not commanded you? Be strong and courageous!",ref:"Joshua 1:9"},
-  {verse:"Whatever you do, work at it with all your heart, as working for the Lord, not for human masters.",ref:"Colossians 3:23"},
-  {verse:"No discipline seems pleasant at the time, but painful. Later on, however, it produces a harvest of righteousness.",ref:"Hebrews 12:11"},
-  {verse:"The Lord will fight for you; you need only to be still.",ref:"Exodus 14:14"},
-  {verse:"Be watchful, stand firm in the faith, act like men, be strong.",ref:"1 Corinthians 16:13"},
-  {verse:"Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.",ref:"Galatians 6:9"},
-  {verse:"Trust in the Lord with all your heart and lean not on your own understanding.",ref:"Proverbs 3:5"},
-  {verse:"The Lord is my rock, my fortress and my deliverer; my God is my rock, in whom I take refuge.",ref:"Psalm 18:2"},
-  {verse:"Come to me, all you who are weary and burdened, and I will give you rest.",ref:"Matthew 11:28"},
-  {verse:"Even youths grow tired and weary, and young men stumble and fall; but those who hope in the Lord will renew their strength.",ref:"Isaiah 40:30-31"},
-  {verse:"Do not be overcome by evil, but overcome evil with good.",ref:"Romans 12:21"},
-  {verse:"And we know that in all things God works for the good of those who love him.",ref:"Romans 8:28"},
-  {verse:"Be strong in the Lord and in his mighty power.",ref:"Ephesians 6:10"},
-  {verse:"I press on toward the goal to win the prize for which God has called me.",ref:"Philippians 3:14"},
-  {verse:"The Lord your God is with you, the Mighty Warrior who saves.",ref:"Zephaniah 3:17"},
-  {verse:"God is our refuge and strength, an ever-present help in trouble.",ref:"Psalm 46:1"},
-  {verse:"My grace is sufficient for you, for my power is made perfect in weakness.",ref:"2 Corinthians 12:9"},
-  {verse:"For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline.",ref:"2 Timothy 1:7"},
-  {verse:"The righteous person may have many troubles, but the Lord delivers him from them all.",ref:"Psalm 34:19"},
-  {verse:"Run in such a way as to get the prize. Everyone who competes in the games goes into strict training.",ref:"1 Corinthians 9:24-25"},
-  {verse:"You were bought at a price. Therefore honor God with your bodies.",ref:"1 Corinthians 6:20"},
-  {verse:"Train yourself to be godly. For physical training is of some value, but godliness has value for all things.",ref:"1 Timothy 4:7-8"},
-  {verse:"The Lord gives strength to his people; the Lord blesses his people with peace.",ref:"Psalm 29:11"},
-  {verse:"Wait for the Lord; be strong and take heart and wait for the Lord.",ref:"Psalm 27:14"},
-];
-
+// ── BIBLE ─────────────────────────────────────────────────────────────────────
 function showBible(){
   const p=BIBLE[Math.floor(Math.random()*BIBLE.length)];
-  document.getElementById("bible-verse").textContent="\""+p.verse+"\"";
-  document.getElementById("bible-ref").textContent="— "+p.ref;
+  document.getElementById("bible-verse").textContent="\u201c"+p.verse+"\u201d";
+  document.getElementById("bible-ref").textContent="\u2014 "+p.ref;
   document.getElementById("modal-bible").classList.remove("hidden");
 }
-function closeBible(){
-  document.getElementById("modal-bible").classList.add("hidden");
+function closeBible(){document.getElementById("modal-bible").classList.add("hidden");}
+
+// ── VISIBILITY CHANGE — auto-save draft when leaving app ──────────────────────
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&activeWorkout)saveDraft();});
+
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────────
+let _audioCtx=null;
+function getAudioCtx(){
+  if(!_audioCtx||_audioCtx.state==='closed'){
+    try{_audioCtx=new(window.AudioContext||window.webkitAudioContext)();}catch{return null;}
+  }
+  if(_audioCtx.state==='suspended') _audioCtx.resume();
+  return _audioCtx;
+}
+// Prime audio context on first user tap so it's ready when timer finishes
+document.addEventListener('touchstart',()=>{getAudioCtx();},{once:true,passive:true});
+document.addEventListener('click',()=>{getAudioCtx();},{once:true});
+
+function playTimerDone(){
+  const a=getAudioCtx();
+  if(!a) return;
+  // Three ascending beeps — loud and clear
+  const beeps=[
+    {freq:660,t:0,dur:0.18},
+    {freq:770,t:0.22,dur:0.18},
+    {freq:880,t:0.44,dur:0.35},
+  ];
+  beeps.forEach(b=>{
+    const o=a.createOscillator();
+    const g=a.createGain();
+    const now=a.currentTime;
+    o.connect(g);g.connect(a.destination);
+    o.type='sine';
+    o.frequency.value=b.freq;
+    g.gain.setValueAtTime(0,now+b.t);
+    g.gain.linearRampToValueAtTime(0.6,now+b.t+0.02);
+    g.gain.setValueAtTime(0.6,now+b.t+b.dur-0.04);
+    g.gain.linearRampToValueAtTime(0,now+b.t+b.dur);
+    o.start(now+b.t);
+    o.stop(now+b.t+b.dur+0.05);
+  });
 }
 
 goTo("home");
