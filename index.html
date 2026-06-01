@@ -718,7 +718,7 @@ function resetProgramDay(){if(!confirm("Reset to original?"))return;PROGRAM[sele
 function startWorkout(prefill){
   clearDraft();
   const exercises=prefill
-    ?prefill.map(ex=>({name:ex.name,sets:Array.from({length:ex.sets},()=>({reps:"",weight:"",logged:false})),note:ex.note||"",superset:!!ex.superset}))
+    ?prefill.map(ex=>({name:ex.name,sets:Array.from({length:ex.sets},()=>({reps:"",weight:"",logged:false})),note:ex.note||"",superset:!!ex.superset,targetSets:ex.sets,targetReps:ex.reps}))
     :[];
   activeWorkout={id:Date.now(),date:new Date().toISOString(),exercises};
   saveDraft();
@@ -758,6 +758,7 @@ function renderLog(){
         </div>
       </div>
       ${ex.note?`<div class="ex-note-small">${ex.note}</div>`:""}
+      ${ex.targetSets&&ex.targetReps?`<div style="display:inline-flex;align-items:center;gap:6px;background:#FF6B2C18;border:1px solid #FF6B2C33;border-radius:8px;padding:4px 10px;margin-bottom:8px;"><span style="font-size:13px;font-weight:900;color:#FF6B2C;letter-spacing:1px;">TARGET</span><span style="font-size:13px;font-weight:700;color:#F0F0F0;">${ex.targetSets} sets × ${ex.targetReps} reps</span></div>`:""}
       ${lastHTML}${histHTML}
       <div class="set-grid">
         <div class="set-col-label">#</div>
